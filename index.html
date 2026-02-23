@@ -34,70 +34,61 @@
         #cursor { width: 10px; height: 10px; background: #c80000; position: fixed; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform 0.1s; }
 
      
-/* MOBİL ÇAKIŞMA VE ÜST ÜSTE BİNME FİX */
+/* MOBİL KESİN ÇÖZÜM - HİÇBİR ŞEY KAPANMAYACAK */
 @media only screen and (max-width: 768px) {
-    /* 1. Sayfayı çok daha fazla aşağı it ki başlık görünür olsun */
+    /* 1. Sabitliği iptal et, her şey normal aksın */
     body { 
-        padding-top: 140px !important; 
+        padding-top: 0 !important; 
+    }
+    
+    .top-banner, header.top-navbar {
+        position: relative !important; /* Fixed'i bozduk, artık üst üste binemezler */
+        top: 0 !important;
     }
 
-    /* 2. Sipariş Bandı: Yüksekliği azalt, yazıyı tek satıra zorla */
+    /* 2. Sipariş Bandı */
     .top-banner {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 10000;
-        font-size: 0.6rem !important; /* Daha küçük font */
-        padding: 8px 5px !important;
-        white-space: nowrap; /* Yazıyı tek satırda tut */
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .top-banner a { 
-        margin-left: 5px !important; 
-        font-size: 0.65rem !important;
-        text-decoration: underline;
+        font-size: 0.7rem !important;
+        padding: 15px !important;
     }
 
-    /* 3. Menü (Navbar): Sipariş bandının hemen altına, daha ince yerleş */
+    /* 3. Menü / Navbar */
     header.top-navbar {
-        position: fixed;
-        top: 35px; /* Bandın yüksekliğine göre ayarlandı */
-        left: 0;
-        width: 100%;
-        height: auto;
-        background: rgba(255, 255, 255, 0.95); /* Hafif şeffaf beyaz */
-        z-index: 9999;
-        padding: 5px 0 !important;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding: 15px 0 !important;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
-    .nav-brand { font-size: 1rem !important; } /* Logo kısmını küçült */
-    
-    .nav-links { 
-        gap: 5px !important; 
-        margin-top: 2px;
-    }
-    
-    .nav-links a, #gece-modu-butonu { 
-        font-size: 0.55rem !important; 
-        padding: 4px 6px !important; 
+    .nav-links {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px !important;
     }
 
-    /* 4. COMPASS İsmi: Artık tepedekiler tarafından kapatılmaz */
+    /* 4. COMPASS BAŞLIĞI - BURASI KRİTİK */
+    .hero-section {
+        min-height: auto !important; /* Yükseklik kısıtlamasını kaldır */
+        padding: 40px 10px !important;
+    }
+
     .hero-title {
-        font-size: 11vw !important; /* Biraz daha küçültüldü */
-        margin-top: 20px !important;
-        letter-spacing: -1px !important;
+        font-size: 15vw !important; /* Ekran genişliğine göre tam sığdır */
+        line-height: 1.2 !important;
+        margin: 0 !important;
+        word-wrap: break-word; /* Kelime çok uzunsa böl (garantiye al) */
     }
 
-    /* 5. Çerez Banner: En alta, en güvenli yere */
+    /* 5. Çerez Banner'ı alta sabitlemeye devam (bu kalsın) */
     #cerez-kutusu {
+        position: fixed !important;
         top: auto !important;
         bottom: 0 !important;
-        padding: 15px !important;
-        font-size: 0.65rem !important;
+        z-index: 999999 !important;
+        padding: 20px 10px !important;
     }
     </style>
 </head>
@@ -239,5 +230,6 @@
     </script>
 </body>
 </html>
+
 
 
