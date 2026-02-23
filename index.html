@@ -12,119 +12,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="mr6KZ6y3OIGRB0VS7OahXEwv9_xAKOouKT9_j44wJ2Y" />
-    
     <title>COMPASS. | Yağmur Gümüş - Şiirler ve Edebiyat</title>
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="YAZAR | Yağmur GÜMÜŞ">
-    <meta property="og:description" content="Unutulmanın Mahalledeki Tadı">
     <link rel="stylesheet" href="style.css">
 
     <style>
+        /* ANA TASARIM */
         .hero-section { height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; animation: fadeIn 1.5s ease-in; padding: 0 20px; }
         .hero-date { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 5px; color: #888; margin-bottom: 25px; }
         .hero-title { font-family: 'Playfair Display', serif; font-size: 6rem; font-weight: 900; margin: 0; line-height: 1; letter-spacing: -2px; }
         .hero-author { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 8px; color: #c80000; margin-top: 25px; text-transform: uppercase; }
-        .top-banner { background-color: #c80000; color: #fff; text-align: center; padding: 12px 20px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+        
+        .top-banner { background-color: #c80000; color: #fff; text-align: center; padding: 12px 20px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; position: relative; z-index: 100; }
         .top-banner a { color: #fff; text-decoration: underline; margin-left: 15px; font-weight: 900; }
 
-       /* PROFESYONEL MOBİL DOKUNUŞU - V2 */
-@media only screen and (max-width: 768px) {
-    /* Sayfanın en üstüne çerez bannerı gelince içeriği aşağı itelim */
-    body { 
-        padding-top: 60px !important; 
-    }
+        /* GÖZLEM KUTUSU STİLİ */
+        #gozlem-kutusu { display: none; opacity: 0; transition: opacity 1s ease; position: fixed; bottom: 30px; left: 30px; background: rgba(0,0,0,0.8); border: 1px solid #333; padding: 15px; border-radius: 5px; font-family: 'Courier New', monospace; font-size: 0.75rem; color: #eee; z-index: 1000; }
+        .log-baslik { color: #c80000; font-weight: bold; margin-right: 10px; }
 
-    /* Sipariş Bandı - Mobilde kaybolmasın diye */
-    .top-banner {
-        font-size: 0.65rem !important;
-        padding: 10px 5px !important;
-        line-height: 1.4;
-        position: relative;
-        z-index: 10;
-    }
-    
-    .top-banner a {
-        display: inline-block;
-        margin-left: 5px !important;
-        margin-top: 5px;
-    }
+        /* ÖZEL İMLEÇ (CURSOR) */
+        #cursor { width: 10px; height: 10px; background: #c80000; position: fixed; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform 0.1s; }
 
-    /* Ana Başlık - Ekrandan taşmaması için küçülttük */
-    .hero-title { 
-        font-size: 2.8rem !important; 
-        letter-spacing: -1px !important;
-    }
+        /* MOBİL FİX - V2 */
+        @media only screen and (max-width: 768px) {
+            body { padding-top: 50px !important; }
+            .hero-title { font-size: 3rem !important; }
+            .hero-section { height: auto; padding: 80px 20px; }
+            .top-banner { font-size: 0.6rem !important; }
+            #gozlem-kutusu { left: 10px; right: 10px; bottom: 10px; font-size: 0.65rem; }
+            #cursor { display: none; } /* Mobilde imleç gizli */
+        }
 
-    .hero-section {
-        height: auto !important;
-        padding: 60px 20px !important;
-    }
-
-    /* Menü - Mobilde birbirine girmesin */
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .nav-links a, #gece-modu-butonu {
-        font-size: 0.7rem !important;
-        padding: 8px 12px !important;
-        border: 1px solid rgba(200, 0, 0, 0.3);
-        border-radius: 4px;
-    }
-
-    /* Didem Madak Epigrafı */
-    .hero-epigraph blockquote {
-        font-size: 1.1rem !important;
-        line-height: 1.6 !important;
-    }
-
-    /* Footer / Koordinatlar */
-    footer div {
-        font-size: 0.7rem !important;
-        letter-spacing: 2px !important;
-    }
+        @keyframes spinNeedle { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .locked-north { transform: rotate(0deg) !important; transition: transform 0.4s ease-out; }
     </style>
 </head>
 <body>
 
-<div id="cerez-kutusu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; background: #c80000; color: #fff; padding: 15px; z-index: 99999999; text-align: center; font-family: sans-serif; font-weight: bold;">
-    Bu mahallede yolunuzu bulabilmeniz için çerezler kullanıyoruz. 
-    <a href="gizlilik-politikasi.html" style="color: #fff; text-decoration: underline; margin: 0 15px;">Politikayı Oku</a>
-    <button id="cerez-kabul" style="background: #fff; color: #c80000; border: none; padding: 5px 20px; cursor: pointer; border-radius: 4px; font-weight: bold;">Anladım</button>
-</div>
+    <div id="cursor"></div>
 
-<div id="compass-preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fdfcfb; z-index: 999999; display: flex; justify-content: center; align-items: center;">
-    <div id="needle" style="width: 4px; height: 90px; background: linear-gradient(to top, #c80000 50%, #111 50%); border-radius: 4px; animation: spinNeedle 0.8s infinite linear;"></div>
-</div>
-
-<div class="top-banner">
-    İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda. 
-    <a href="#">HEMEN SİPARİŞ VER</a>
-</div>
-
-<header class="top-navbar">
-    <a href="index.html" class="nav-brand">COMPASS.</a>
-    <nav class="nav-links">
-        <button id="gece-modu-butonu">MOD DEĞİŞTİR</button>
-        <a href="siirler.html">ŞİİRLER</a>
-        <a href="didemvari.html">DİDEMVARİ</a>
-        <a href="kim-bu-yagmur.html">KİM BU YAĞMUR</a>
-    </nav>
-</header>
-
-<main class="hero-section">
-    <div class="hero-date">11 TEMMUZ</div>
-    <h1 class="hero-title">COMPASS.</h1>
-    <div class="hero-author">YAĞMUR GÜMÜŞ</div>
-    <div class="hero-epigraph">
-        <blockquote>“Sevgili anneciğim, binlerce kez açıldım, binlerce kez kapandım yokluğunda."</blockquote>
-        <cite>— Didem Madak</cite>
+    <div id="cerez-kutusu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; background: #c80000; color: #fff; padding: 15px; z-index: 99999999; text-align: center; font-family: sans-serif; font-weight: bold;">
+        Bu mahallede yolunuzu bulabilmeniz için çerezler kullanıyoruz. 
+        <a href="gizlilik-politikasi.html" style="color: #fff; text-decoration: underline; margin: 0 15px;">Politikayı Oku</a>
+        <button id="cerez-kabul" style="background: #fff; color: #c80000; border: none; padding: 5px 20px; cursor: pointer; border-radius: 4px; font-weight: bold;">Anladım</button>
     </div>
-</main>
+
+    <div id="compass-preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fdfcfb; z-index: 999999; display: flex; justify-content: center; align-items: center;">
+        <div id="needle" style="width: 4px; height: 90px; background: linear-gradient(to top, #c80000 50%, #111 50%); border-radius: 4px; animation: spinNeedle 0.8s infinite linear;"></div>
+    </div>
+
+    <div class="top-banner">
+        İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda. 
+        <a href="#">HEMEN SİPARİŞ VER</a>
+    </div>
+
+    <header class="top-navbar">
+        <a href="index.html" class="nav-brand">COMPASS.</a>
+        <nav class="nav-links">
+            <button id="gece-modu-butonu">MOD DEĞİŞTİR</button>
+            <a href="siirler.html">ŞİİRLER</a>
+            <a href="didemvari.html">DİDEMVARİ</a>
+            <a href="kim-bu-yagmur.html">KİM BU YAĞMUR</a>
+        </nav>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-date">11 TEMMUZ</div>
+        <h1 class="hero-title">COMPASS.</h1>
+        <div class="hero-author">YAĞMUR GÜMÜŞ</div>
+        <div class="hero-epigraph">
+            <blockquote>“Sevgili anneciğim, binlerce kez açıldım, binlerce kez kapandım yokluğunda."</blockquote>
+            <cite>— Didem Madak</cite>
+        </div>
+    </main>
+
+    <div id="gozlem-kutusu">
+        <span class="log-baslik">GÖZLEM RAPORU:</span>
+        <span id="lokasyon-metni">Veri aranıyor...</span>
+    </div>
+
     <footer style="text-align: center; padding: 60px 20px; margin-top: 80px; border-top: 1px solid rgba(128,128,128,0.1);">
         <div style="font-family: 'Courier New', monospace; font-size: 0.85rem; color: #888; letter-spacing: 4px; margin-bottom: 15px;">
             41°01'N 29°01'E &nbsp;—&nbsp; 38°25'N 27°08'E
@@ -137,36 +103,85 @@
         </div>
     </footer>
 
-<script>
-    // Preloader ve Cerez Yönetimi
-    window.addEventListener('load', () => {
-        const needle = document.getElementById('needle');
-        setTimeout(() => {
-            needle.classList.add('locked-north');
+    <script>
+        // 1. PRELOADER & ÇEREZ
+        window.addEventListener('load', () => {
+            const needle = document.getElementById('needle');
             setTimeout(() => {
-                document.getElementById('compass-preloader').style.display = 'none';
-                if (!localStorage.getItem("cerezKabulEdildi")) {
-                    document.getElementById("cerez-kutusu").style.display = "block";
-                }
-            }, 600);
-        }, 1000); 
-    });
+                needle.classList.add('locked-north');
+                setTimeout(() => {
+                    document.getElementById('compass-preloader').style.display = 'none';
+                    if (!localStorage.getItem("cerezKabulEdildi")) {
+                        document.getElementById("cerez-kutusu").style.display = "block";
+                    }
+                }, 600);
+            }, 1000); 
+        });
 
-    document.getElementById('cerez-kabul').onclick = () => {
-        localStorage.setItem("cerezKabulEdildi", "evet");
-        document.getElementById("cerez-kutusu").style.display = "none";
-    };
+        document.getElementById('cerez-kabul').onclick = () => {
+            localStorage.setItem("cerezKabulEdildi", "evet");
+            document.getElementById("cerez-kutusu").style.display = "none";
+        };
 
-    // Gece Modu
-    const buton = document.getElementById("gece-modu-butonu");
-    buton.onclick = () => {
-        document.body.classList.toggle("dark-mode");
-        localStorage.setItem("tema", document.body.classList.contains("dark-mode") ? "gece" : "gunduz");
-    };
-    if (localStorage.getItem("tema") === "gece") document.body.classList.add("dark-mode");
-</script>
+        // 2. ÖZEL İMLEÇ (CURSOR)
+        var cursor = document.getElementById("cursor");
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+        });
 
+        // 3. GECE MODU
+        const buton = document.getElementById("gece-modu-butonu");
+        buton.onclick = () => {
+            document.body.classList.toggle("dark-mode");
+            localStorage.setItem("tema", document.body.classList.contains("dark-mode") ? "gece" : "gunduz");
+        };
+        if (localStorage.getItem("tema") === "gece") document.body.classList.add("dark-mode");
+
+        // 4. KOPYALAMA İMZASI
+        document.addEventListener('copy', (e) => {
+            const selection = window.getSelection().toString();
+            const signature = "\n\n-------------------------\nKaynak: COMPASS | Yağmur Gümüş (2006)\nBağlantı: " + window.location.href;
+            e.clipboardData.setData('text/plain', selection + signature);
+            e.preventDefault();
+        });
+
+        // 5. ŞEHİR GÖZLEMİ (81 İL)
+        async function sehirGozlemi() {
+            const kutu = document.getElementById("lokasyon-metni");
+            const anaKutu = document.getElementById("gozlem-kutusu");
+            const sehirler = {
+                "Adana": "Hey Adanalı hoş geldin", "Adiyaman": "Hey Adıyamanlı hoş geldin", "Afyonkarahisar": "Hey Afyonlu hoş geldin", "Agri": "Hey Ağrılı hoş geldin",
+                "Amasya": "Hey Amasyalı hoş geldin", "Ankara": "Hey Ankaralı hoş geldin", "Antalya": "Hey Antalyalı hoş geldin", "Artvin": "Hey Artvinli hoş geldin",
+                "Aydin": "Hey Aydınlı hoş geldin", "Balikesir": "Hey Balıkesirli hoş geldin", "Bilecik": "Hey Bilecikli hoş geldin", "Bingol": "Hey Bingöllü hoş geldin",
+                "Bitlis": "Hey Bitlisli hoş geldin", "Bolu": "Hey Bolulu hoş geldin", "Burdur": "Hey Burdurlu hoş geldin", "Bursa": "Hey Bursalı hoş geldin",
+                "Canakkale": "Hey Çanakkaleli hoş geldin", "Cankiri": "Hey Çankırılı hoş geldin", "Corum": "Hey Çorumlu hoş geldin", "Denizli": "Hey Denizlili hoş geldin",
+                "Diyarbakir": "Hey Diyarbakırlı hoş geldin", "Edirne": "Hey Edirneli hoş geldin", "Elazig": "Hey Elazığlı hoş geldin", "Erzincan": "Hey Erzincanlı hoş geldin",
+                "Erzurum": "Hey Erzurumlu hoş geldin", "Eskisehir": "Hey Eskişehirli hoş geldin", "Gaziantep": "Hey Gaziantepli hoş geldin", "Giresun": "Hey Giresunlu hoş geldin",
+                "Gumushane": "Hey Gümüşhaneli hoş geldin", "Hakkari": "Hey Hakkarili hoş geldin", "Hatay": "Hey Hataylı hoş geldin", "Isparta": "Hey Ispartalı hoş geldin",
+                "Mersin": "Hey Mersinli hoş geldin", "Istanbul": "Hey İstanbullu hoş geldin", "Izmir": "Hey İzmirli hoş geldin, hemşehrim!", "Kars": "Hey Karslı hoş geldin",
+                "Kastamonu": "Hey Kastamonulu hoş geldin", "Kayseri": "Hey Kayserili hoş geldin", "Kirklareli": "Hey Kırklarelili hoş geldin", "Kirsehir": "Hey Kırşehirli hoş geldin",
+                "Kocaeli": "Hey Kocaelili hoş geldin", "Konya": "Hey Konyalı hoş geldin", "Kutahya": "Hey Kütahyalı hoş geldin", "Malatya": "Hey Malatyalı hoş geldin",
+                "Manisa": "Hey Manisalı hoş geldin", "Kahramanmaras": "Hey Maraşlı hoş geldin", "Mardin": "Hey Mardinli hoş geldin", "Mugla": "Hey Muğlalı hoş geldin",
+                "Mus": "Hey Muşlu hoş geldin", "Nevsehir": "Hey Nevşehirli hoş geldin", "Nigde": "Hey Niğdeli hoş geldin", "Ordu": "Hey Ordulu hoş geldin",
+                "Rize": "Hey Rizeli hoş geldin", "Sakarya": "Hey Sakaryalı hoş geldin", "Samsun": "Hey Samsunlu hoş geldin", "Siirt": "Hey Siirtli hoş geldin",
+                "Sinop": "Hey Sinoplu hoş geldin", "Sivas": "Hey Sivaslı hoş geldin", "Tekirdag": "Hey Tekirdağlı hoş geldin", "Tokat": "Hey Tokatlı hoş geldin",
+                "Trabzon": "Hey Trabzonlu hoş geldin", "Tunceli": "Hey Tuncelili hoş geldin", "Sanliurfa": "Hey Urfalı hoş geldin", "Usak": "Hey Uşaklı hoş geldin",
+                "Van": "Hey Vanlı hoş geldin", "Yozgat": "Hey Yozgatlı hoş geldin", "Zonguldak": "Hey Zonguldaklı hoş geldin", "Aksaray": "Hey Aksaraylı hoş geldin",
+                "Bayburt": "Hey Bayburtlu hoş geldin", "Karaman": "Hey Karamanlı hoş geldin", "Kirikkale": "Hey Kırıkkaleli hoş geldin", "Batman": "Hey Batmanlı hoş geldin",
+                "Sirnak": "Hey Şırnaklı hoş geldin", "Bartin": "Hey Bartınlı hoş geldin", "Ardahan": "Hey Ardahanlı hoş geldin", "Igdir": "Hey Iğdırlı hoş geldin",
+                "Yalova": "Hey Yalovalı hoş geldin", "Karabuk": "Hey Karabüklü hoş geldin", "Kilis": "Hey Kilisli hoş geldin", "Osmaniye": "Hey Osmaniyeli hoş geldin",
+                "Duzce": "Hey Düzceli hoş geldin"
+            };
+            try {
+                const res = await fetch('https://ipapi.co/json/');
+                const data = await res.json();
+                kutu.innerHTML = sehirler[data.city] || `Hey ${data.city} semalarındaki dost, hoş geldin`;
+                anaKutu.style.display = "block";
+                setTimeout(() => { anaKutu.style.opacity = "1"; }, 100);
+            } catch (e) { anaKutu.style.display = "none"; }
+        }
+        sehirGozlemi();
+    </script>
 </body>
 </html>
-
-
