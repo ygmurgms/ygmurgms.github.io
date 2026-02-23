@@ -28,17 +28,65 @@
         .top-banner { background-color: #c80000; color: #fff; text-align: center; padding: 12px 20px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
         .top-banner a { color: #fff; text-decoration: underline; margin-left: 15px; font-weight: 900; }
 
-        /* PROFESYONEL MOBİL DOKUNUŞU */
-        @media only screen and (max-width: 768px) {
-            body { padding: 0; }
-            .hero-title { font-size: 3.5rem !important; }
-            .container, .content-box { width: 95% !important; padding: 20px !important; margin: 10px auto; border-radius: 15px; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.1); }
-            p { font-size: 17px !important; line-height: 1.8 !important; text-align: left; }
-            nav a { display: block; width: 100%; margin: 8px 0; padding: 12px; text-align: center; border: 1px solid #c80000; }
-        }
+       /* PROFESYONEL MOBİL DOKUNUŞU - V2 */
+@media only screen and (max-width: 768px) {
+    /* Sayfanın en üstüne çerez bannerı gelince içeriği aşağı itelim */
+    body { 
+        padding-top: 60px !important; 
+    }
 
-        @keyframes spinNeedle { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .locked-north { transform: rotate(0deg) !important; transition: transform 0.4s ease-out; }
+    /* Sipariş Bandı - Mobilde kaybolmasın diye */
+    .top-banner {
+        font-size: 0.65rem !important;
+        padding: 10px 5px !important;
+        line-height: 1.4;
+        position: relative;
+        z-index: 10;
+    }
+    
+    .top-banner a {
+        display: inline-block;
+        margin-left: 5px !important;
+        margin-top: 5px;
+    }
+
+    /* Ana Başlık - Ekrandan taşmaması için küçülttük */
+    .hero-title { 
+        font-size: 2.8rem !important; 
+        letter-spacing: -1px !important;
+    }
+
+    .hero-section {
+        height: auto !important;
+        padding: 60px 20px !important;
+    }
+
+    /* Menü - Mobilde birbirine girmesin */
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-links a, #gece-modu-butonu {
+        font-size: 0.7rem !important;
+        padding: 8px 12px !important;
+        border: 1px solid rgba(200, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+
+    /* Didem Madak Epigrafı */
+    .hero-epigraph blockquote {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Footer / Koordinatlar */
+    footer div {
+        font-size: 0.7rem !important;
+        letter-spacing: 2px !important;
+    }
     </style>
 </head>
 <body>
@@ -120,4 +168,5 @@
 
 </body>
 </html>
+
 
