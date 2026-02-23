@@ -147,6 +147,29 @@
     </style>
 </head>
 <body>
+    <div id="cerez-kutusu" style="display: none; position: fixed; top: 0; left: 0; width: 100%; background: #c80000; color: #fff; padding: 15px; z-index: 99999999 !important; text-align: center; font-family: sans-serif; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+    Bu mahallede yolunuzu bulabilmeniz için çerezler kullanıyoruz. 
+    <a href="gizlilik-politikasi.html" style="color: #fff; text-decoration: underline; margin: 0 15px;">Politikayı Oku</a>
+    <button id="cerez-kabul" style="background: #fff; color: #c80000; border: none; padding: 5px 20px; cursor: pointer; border-radius: 4px; font-weight: bold; margin-left: 10px;">Anladım</button>
+</div>
+
+<script>
+    // Bu script en üstte olduğu için her şeyden önce çalışır
+    (function() {
+        if (!localStorage.getItem("cerezKabulEdildi")) {
+            // Küçük bir gecikmeyle göster ki her şey yüklensin
+            setTimeout(function() {
+                document.getElementById("cerez-kutusu").style.display = "block";
+            }, 1000);
+        }
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.id == 'cerez-kabul') {
+                localStorage.setItem("cerezKabulEdildi", "evet");
+                document.getElementById("cerez-kutusu").style.display = "none";
+            }
+        });
+    })();
+</script>
     <div id="cursor"></div>
 
     <div id="compass-preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fdfcfb; z-index: 999999; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease-out, visibility 0.8s;">
@@ -320,45 +343,4 @@ window.addEventListener('load', sehirGozlemi);
     <span id="lokasyon-metni">Veri aranıyor...</span>
 </div>
     <script>
-        <div id="cerez-kutusu" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 650px; background: rgba(15, 15, 15, 0.95); border: 1px solid #444; color: #ccc; padding: 20px; border-radius: 8px; z-index: 9999; box-shadow: 0 5px 25px rgba(0,0,0,0.8); text-align: center; font-family: sans-serif; font-size: 13px;">
-    Bu mahallede yolunuzu daha iyi bulabilmeniz için çerezler kullanıyoruz. Sitede gezinmeye devam ederek <a href="gizlilik-politikasi.html" style="color: #c80000; text-decoration: underline;">Gizlilik Politikamızı</a> kabul etmiş olursunuz.
-    <br><br>
-    <button id="cerez-kabul" style="background-color: #e0dcd3; color: #000; border: none; padding: 10px 25px; font-weight: bold; border-radius: 4px; cursor: pointer; font-size: 14px;">Pusulayı Onayla</button>
-</div>
-
-<script>
-  <div id="cerez-kutusu" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #111; border-top: 2px solid #c80000; color: #fff; padding: 20px; z-index: 9999999 !important; font-family: sans-serif; box-shadow: 0 -5px 20px rgba(0,0,0,0.9);">
-    <div style="max-width: 800px; margin: auto; text-align: center;">
-        <p style="margin-bottom: 15px; font-size: 14px;">Bu mahallede yolunuzu bulabilmeniz için çerezler kullanıyoruz. <a href="gizlilik-politikasi.html" style="color: #c80000; font-weight: bold;">Gizlilik Politikamızı</a> kabul ediyor musunuz?</p>
-        <button id="cerez-kabul" style="background: #c80000; color: white; border: none; padding: 10px 30px; cursor: pointer; border-radius: 4px; font-weight: bold;">Pusulayı Onayla</button>
-    </div>
-</div>
-
-<script>
-    // Tarayıcı hafızasını kontrol et ve göster
-    window.onload = function() {
-        if (!localStorage.getItem("cerezKabulEdildi")) {
-            document.getElementById("cerez-kutusu").style.display = "block";
-        }
-        document.getElementById("cerez-kabul").onclick = function() {
-            localStorage.setItem("cerezKabulEdildi", "evet");
-            document.getElementById("cerez-kutusu").style.display = "none";
-        };
-    };
-</script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
