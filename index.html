@@ -155,6 +155,60 @@
             box-shadow: 0 0 20px rgba(200, 0, 0, 0.2);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        /* PROFESYONEL MOBİL DOKUNUŞU */
+@media only screen and (max-width: 768px) {
+    body {
+        padding: 20px 15px; /* Kenarlardan nefes aldır */
+        background-attachment: scroll; /* Mobilde arka plan kasmaması için */
+    }
+
+    /* Başlığı mobilde daha karizmatik yapalım */
+    h1 {
+        font-size: 28px !important;
+        letter-spacing: 2px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    /* Şiirlerin içindeki konteyner (Eğer div kullanıyorsan) */
+    .container, .content-box, article {
+        width: 100% !important;
+        padding: 20px !important;
+        box-sizing: border-box;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.03); /* Çok hafif bir cam efekti */
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+    }
+
+    /* Şiir metinleri: Mobilde okunabilirlik her şeydir */
+    p {
+        font-size: 17px !important;
+        line-height: 1.8 !important; /* Satır aralarını aç ki mısralar boğulmasın */
+        text-align: left; /* Şiir soldan akar */
+        word-spacing: 1px;
+    }
+
+    /* Resimlerin ekrandan taşmasını engelle */
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* Menü butonlarını parmak dostu yap */
+    nav a, .button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        text-align: center;
+        background: rgba(200, 0, 0, 0.1);
+        border: 1px solid #c80000;
+        border-radius: 5px;
+    }
+}
     </style>
 </head>
 <body>
@@ -355,4 +409,5 @@ window.addEventListener('load', sehirGozlemi);
 </div>
     <script>
         
+
 
