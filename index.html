@@ -320,7 +320,28 @@ window.addEventListener('load', sehirGozlemi);
     <span id="lokasyon-metni">Veri aranıyor...</span>
 </div>
     <script>
+        <div id="cerez-kutusu" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 650px; background: rgba(15, 15, 15, 0.95); border: 1px solid #444; color: #ccc; padding: 20px; border-radius: 8px; z-index: 9999; box-shadow: 0 5px 25px rgba(0,0,0,0.8); text-align: center; font-family: sans-serif; font-size: 13px;">
+    Bu mahallede yolunuzu daha iyi bulabilmeniz için çerezler kullanıyoruz. Sitede gezinmeye devam ederek <a href="gizlilik-politikasi.html" style="color: #c80000; text-decoration: underline;">Gizlilik Politikamızı</a> kabul etmiş olursunuz.
+    <br><br>
+    <button id="cerez-kabul" style="background-color: #e0dcd3; color: #000; border: none; padding: 10px 25px; font-weight: bold; border-radius: 4px; cursor: pointer; font-size: 14px;">Pusulayı Onayla</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (!localStorage.getItem("cerezKabulEdildi")) {
+            document.getElementById("cerez-kutusu").style.display = "block";
+        }
+        document.getElementById("cerez-kabul").addEventListener("click", function() {
+            localStorage.setItem("cerezKabulEdildi", "evet");
+            document.getElementById("cerez-kutusu").style.display = "none";
+        });
+    });
+</script>
+
+</body>
+</html>
    
+
 
 
 
