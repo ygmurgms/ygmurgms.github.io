@@ -1,4 +1,4 @@
-/* =========================================
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');/* =========================================
    COMPASS | YAĞMUR GÜMÜŞ - ANA STİL DOSYASI
 ========================================= */
 
@@ -276,4 +276,20 @@ body.dark-mode #gozlem-kutusu {
     }
 }
 
+/* =========================================
+   ŞAİRİN GÜNLÜĞÜ: EL YAZISI EFEKTİ
+========================================= */
+
+/* Sitedeki tüm şiirleri ve alıntıları el yazısı yap */
+.hero-epigraph blockquote,
+.poem-snippet blockquote,
+.didem-quote,
+.siir-metni {
+    font-family: 'Caveat', cursive !important;
+    font-size: 2rem !important; /* El yazısı genelde küçük durur, o yüzden biraz büyüttük */
+    line-height: 1.4 !important;
+    letter-spacing: 1.5px !important;
+    font-weight: 500 !important;
+    color: #e0dcd3 !important; /* Rengi biraz daha defter yaprağına uygun, kırık beyaz yaptık */
+}
 
