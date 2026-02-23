@@ -292,4 +292,20 @@ body.dark-mode #gozlem-kutusu {
     font-weight: 500 !important;
     color: #e0dcd3 !important; /* Rengi biraz daha defter yaprağına uygun, kırık beyaz yaptık */
 }
+/* Telefonlar için özel ayarlar (Ekran 600px'den küçükse) */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 15px; /* Kenar boşluklarını daralt */
+    }
+    h1 {
+        font-size: 24px !important; /* Başlıkları telefona göre küçült */
+    }
+    p {
+        font-size: 16px !important; /* Şiir metinlerini okunur yap */
+        line-height: 1.6; /* Satır aralarını ferahlat */
+    }
+    .container {
+        width: 100% !important; /* İçeriği ekrana yay */
+        margin: 0 !important;
+    }
 
