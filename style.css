@@ -209,4 +209,37 @@ body::before {
 body.dark-mode #gozlem-kutusu {
     background: rgba(253, 252, 251, 0.1);
     border-left-color: #fdfcfb;
+}/* --- MOBİL EKRANLAR İÇİN HAYAT KURTARAN DÜZELTMELER --- */
+@media screen and (max-width: 768px) {
+    /* Ana başlığı telefona sığdır */
+    .hero-title {
+        font-size: 3.5rem !important;
+        letter-spacing: 0 !important;
+    }
+    
+    /* Şiirler sayfası başlığını küçült */
+    .preview-header h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    /* Hakkımda sayfası başlığını küçült */
+    .about-title {
+        font-size: 2rem !important;
+    }
+    
+    /* Menü telefonlarda alt alta geçince yazıyı ezmesin diye tepe boşluğunu artır */
+    body {
+        padding-top: 140px !important;
+    }
+    
+    /* Didem Madak alıntısı telefonda çok büyük durmasın */
+    .hero-epigraph blockquote {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Şiir alıntılarını telefona uydur */
+    .poem-snippet blockquote {
+        font-size: 1.2rem !important;
+    }
 }
+
