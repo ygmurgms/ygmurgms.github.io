@@ -277,18 +277,18 @@ async function sehirGozlemi() {
         "Yalova": "Hey Yalovalı hoş geldin", "Karabuk": "Hey Karabüklü hoş geldin", "Kilis": "Hey Kilisli hoş geldin", "Osmaniye": "Hey Osmaniyeli hoş geldin",
         "Duzce": "Hey Düzceli hoş geldin"
     };
-
-    try {
+       try {
         const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
         
-        // API'den gelen şehir ismini temizle ve Türkçe karakter uyumunu sağla
         let sehir = data.city; 
-        
-        // Şehir listesinde varsa mesajı yaz, yoksa genel bir mesaj ver
         const mesaj = sehirler[sehir] || `Hey ${sehir} semalarındaki dost, hoş geldin`;
 
         kutu.innerHTML = `<span class="log-status">[GÖZLEM]</span> ${mesaj}`;
+        
+        /* İŞTE HAYAT KURTARAN O KOD: Veri gelince kutuyu görünür yap */
+        document.getElementById("gozlem-kutusu").style.opacity = "1"; 
+        
     } catch (error) {
         console.log("Bağlantı sessizce koptu.");
         document.getElementById("gozlem-kutusu").style.display = "none";
@@ -296,9 +296,11 @@ async function sehirGozlemi() {
 }
 window.addEventListener('load', sehirGozlemi);
 </script>
-</body>
-</html>
+
 <div id="gozlem-kutusu">
     <span class="log-baslik">GÖZLEM RAPORU:</span>
     <span id="lokasyon-metni">Veri aranıyor...</span>
 </div>
+
+</body>
+</html>
