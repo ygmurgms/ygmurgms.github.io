@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ses Ver | COMPASS</title>
+    <link rel="stylesheet" href="style.css">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="COMPASS. | Yağmur Gümüş">
+    <meta property="og:description" content="Unutulmanın Mahalledeki Tadı">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="COMPASS. | Yağmur Gümüş">
+    <meta name="twitter:description" content="Unutulmanın Mahalledeki Tadı">
+    
+    <style>
+        .contact-container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 0 20px;
+            animation: fadeIn 1s ease-in;
+        }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .contact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+        .contact-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+        
+        /* FORM TASARIMI: Daktilo kağıdı gibi zarif ve minimalist */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .form-group {
+            position: relative;
+        }
+        .form-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            transition: border-color 0.3s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-bottom-color: var(--kafa-red);
+        }
+        .form-input::placeholder {
+            color: #aaa;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        textarea.form-input {
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.6;
+        }
+        .submit-btn {
+            background: transparent;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background: var(--text-color);
+            color: #fff;
+        }
+
+        /* KİTAP SATIŞ ÇUBUĞU */
+        .top-banner {
+            background-color: var(--kafa-red);
+            color: #fff;
+            text-align: center;
+            padding: 12px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+   <div class="top-banner">
+        İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda. 
+        <a href="#">HEMEN SİPARİŞ VER</a>
+    </div>
+
+    <header class="top-navbar">
+        <a href="index.html" class="nav-brand">COMPASS.</a>
+        <nav class="nav-links">
+            <button id="gece-modu-butonu">MODU DEĞİŞTİR</button>
+            <a href="siirler.html">ŞİİRLER</a>
+            <a href="didemvari.html">DİDEMVARİ ŞEYLER</a>
+            <a href="kim-bu-yagmur.html">KİM BU YAĞMUR</a>
+            <a href="ses-ver.html" style="color: var(--kafa-red); font-weight: 800;">SES VER</a>
+        </nav>
+    </header>
+
+    <main class="contact-container">
+        <header class="contact-header">
+            <h1 class="contact-title">Ses Ver.</h1>
+            <p class="contact-subtitle">
+                "Şiire, sokağa, mahalleye veya eksik kalanlara dair...<br>
+                Kelimelerinizi esirgemeyin. Buradayım, okuyorum."
+            </p>
+        </header>
+
+        <form name="iletisim" method="POST" data-netlify="true" class="contact-form">
+            <div class="form-group">
+                <input type="text" name="isim" class="form-input" placeholder="İSMİNİZ" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" name="eposta" class="form-input" placeholder="E-POSTA ADRESİNİZ" required>
+            </div>
+            
+            <div class="form-group">
+                <textarea name="mesaj" class="form-input" placeholder="BANA YAZIN..." required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">MEKTUBU GÖNDER</button>
+        </form>
+    </main>
+
+    <footer style="text-align: center; padding: 60px 20px; margin-top: 80px; border-top: 1px solid #eee;">
+        <div style="font-family: 'Courier New', monospace; font-size: 0.85rem; color: #aaa; letter-spacing: 4px; margin-bottom: 15px;">
+            41°01'N 29°01'E &nbsp;—&nbsp; 38°25'N 27°08'E
+        </div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #111; font-style: italic; font-weight: 700; margin-bottom: 30px;">
+            "My Compass"
+        </div>
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: #999; letter-spacing: 3px; text-transform: uppercase;">
+        © 2006 YAĞMUR GÜMÜŞ. Tüm hakları kelimelere saklıdır.
+        </div>
+    </footer>
+<script>
+    const buton = document.getElementById("gece-modu-butonu");
+    const govde = document.body;
+
+    // Sayfa açıldığında hafızaya bak: Diğer sayfada ışığı kapatmış mıydık?
+    if (localStorage.getItem("tema") === "gece") {
+        govde.classList.add("dark-mode");
+    }
+
+    // Bu sayfadaki düğmeye basınca ne olsun?
+    if (buton) {
+        buton.addEventListener("click", function() {
+            govde.classList.toggle("dark-mode");
+
+            if (govde.classList.contains("dark-mode")) {
+                localStorage.setItem("tema", "gece");
+            } else {
+                localStorage.setItem("tema", "gunduz");
+            }
+        });
+    }
+</script>
+<script>
+    // SAYFA AÇILIRKEN SÜZÜLEREK GELSİN
+    document.body.style.opacity = "0";
+    document.body.style.transition = "opacity 0.8s ease-in-out";
+
+    window.onload = function() {
+        document.body.style.opacity = "1";
+    };
+</script>
+<script>
+    document.addEventListener('copy', function(e) {
+        // Seçilen yazıyı al
+        const secilenYazi = window.getSelection().toString();
+        
+        // Senin imzan (Burayı istediğin gibi değiştirebilirsin)
+        const imza = "\n\n-------------------------\nKaynak: COMPASS | Yağmur Gümüş (2006)\nBağlantı: " + window.location.href;
+        
+        // Yazının sonuna imzayı ekle
+        const yeniMetin = secilenYazi + imza;
+        
+        // Panoya yeni halini gönder
+        e.clipboardData.setData('text/plain', yeniMetin);
+        
+        // Tarayıcının standart kopyalamasını engelle (çünkü biz yenisini yaptık)
+        e.preventDefault();
+    });
+</script>
+</body>
+</html>

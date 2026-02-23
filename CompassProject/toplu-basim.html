@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Matbaa Matrisi | Toplu Basım</title>
+    <style>
+        body { background: #111; color: #eee; font-family: monospace; padding: 50px; text-align: center; }
+        button { background: #E30613; color: white; border: none; padding: 20px 40px; font-size: 1.5rem; cursor: pointer; font-weight: bold; }
+        button:hover { background: #ff1a27; }
+        #log { margin-top: 30px; color: #888; }
+    </style>
+</head>
+<body>
+
+    <h1>COMPASS: Kitap Basım Makinesi</h1>
+    <p>Bu butona bastığında, şiirlerin doğrudan veritabanına mühürlenecek.</p>
+    <button id="bas-btn">ŞİİRLERİ VERİTABANINA BAS</button>
+    <div id="log">Makine hazır bekliyor...</div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA_RsL9yQ018fRsVCezSWDTHqRFI1LAqtc",
+            authDomain: "compass-b608f.firebaseapp.com",
+            projectId: "compass-b608f",
+            storageBucket: "compass-b608f.firebasestorage.app",
+            messagingSenderId: "405013895869",
+            appId: "1:405013895869:web:e372f35de600aca127f5d4"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // KİTABININ İLK PARTİSİ
+        const siirler = [
+            {
+                baslik: "ON BİR TEMMUZ",
+                tarih: "(bu şiir birçok kez yazıldı, birçok kez silindi)",
+                icerik: "Sıcak bir temmuz günüydü.\nGüneşin sıcaklığı tenimden ziyade içimi yakıp kavuruyordu. Bakkalın önünde gazoz içen çocuklar sessizliğe bürünmüştü.\nHavada yanık kokusu ve mahalle kadınlarının suskunluğu vardı; gözlerindeki acıyı herkes saklamaya çalışıyordu.\nSaçlarımda dolanan şefkatli ellerin yerine,\nbir ayrılık rüzgârı sarmıştı etrafımı.\nVe o rüzgârla beraber, her şeyin yavaş yavaş\nkaybolduğunu fark ettim.\nKomşu teyzeler o gün çamaşır asmadı.\nSoba dumanları daha kara tüttü bacalardan.\nYol kenarındaki ağaçlar başlarını yere eğmişti.\nMahalleli ağlamaklıydı,\nbütün kaldırımların rengi solmuştu.\nKimse yaşam sevinci taşımıyordu.\nOyun oynadığım seksek çizgileri silindi.\nBakkaldan alınan şekerin tadı,\nhiçbir zaman eskisi gibi olmadı.\nÖksüzlüğü ilk kez o gün öğrendik bütün mahallece.\nÇünkü annem giderken yalnız beni değil,\nİçinde “anne” geçen bütün kelimeleri de aldı yanına.\nO kelime, yıkılmadık ev bırakmadı mahallemizde.\nSiyah önlüklü çocuklar, o sabah okula gitmedi.\nÇünkü bir gelinlik, annesiz bırakmıştı herkesi.\nÖyle gelinlik dediğime bakmayın,\nBeyazın en kirli, en ağır hâli gibiydi.\nBir gelinlik bir mahalleyi yıkmaya yetiyormuş,\no gün öğrendik.\nO günden sonra\nayrılığın yeni adını “On Bir Temmuz” koydum.\nVe bazı sabahlar hâlâ on dört yaşıma uyanıyorum,\nYalınayak iniyorum merdivenleri."
+            },
+            {
+                baslik: "DUT AĞACI",
+                tarih: "(bu şiir, dut ağacının altında yazıldı)",
+                icerik: "Bir bilseler ne çok kırık saklıyorum mahalledeki dut ağacı kökünde.\nDallanıp budaklanıyor sensizlik gitgide.\nBir bilseler çalınan ışığımı,\nElimde bir fincan kahveyle gülümsediğim karanlığı…\nDut ağaçları doğuruyor kimsesiz çocukları,\nMeskenleri kurumuş dallar.\nBir bilseler içime süzülen yaşları...\n\"Kardeşiz,\" diyorum o çocuklarla!\nDoğup da bırakılmadım mı gölgesiz ağaç altına?\nYoğrulmadım mı dut karası acılarla?\nKoşuyoruz çocuklarla ağaca.\nHayır, dutlar duracak dalında, biz kopacağız.\nO an anlıyorum; Kardeş değiliz işte o çocuklarla!\nAh çocuklar… Ruhumun duvarlarındaki sarmaşıklar…\nBen ise solmaya yüz tutmuş çiçeksi düşlerin başrolü.\nSonra isyanımı duyan gün doğumu iniyor yeryüzüne.\nKırk beşlik bir plaktan kısıyorum acıların sesini.\nSıyrılıyorum düşlerden.\nAy yavaş yavaş terk ediyor geceyi, ağacı, beni, çocukları…"
+            },
+            {
+                baslik: "NEREDEN BİLSİNLER",
+                tarih: "(bu şiir, çamaşır ipine asılan içli bir gömleğin cebinden sarktı)",
+                icerik: "Sen de bilirsin Çiğdem;\nKaplumbağa kabuğundan çıkmaz, ben de odamdan.\nAynı değil belki ama aynı kadar çaresiz.\nPenceremin kenarında bir saksı kırıldı geçen gün;\ntoprağını üfledim, içinden senin adın çıktı.\nBilmezler ki ben her şeyi sen zannettim:\nBakkaldan gelen poşeti, komşunun çocuğunun ağlamasını,\nhatta geçenlerde kırılan fincanın sesini bile.\nKalbım var mıydı, bilmiyorum.\nVarsa da eski bir sandalye gibi gıcırdayarak\nduruyordur bir köşede.\nDarmadağın bir evin ortasında,\nmisafir gelmeyecek diye süpürülmeyen\nbir halının altında kalmıştır belki.\nAma nereden bilsinler…\nBen güneşi hep perdeden gördüm.\nKahkaha atmadım, dudaklarımı sadece\nharfleri kaçırmasınlar diye kıpırdattım.\nYorgunluk göz kapaklarımda oturuyor kiracı gibi,\nhiçbir faturayı ödemeden.\nVe ben her gece, karşı ranzada boş kalan\nbattaniyeye seni sarıyorum.\nOnlar bilmez.\nBen seni bir duanın kıyısında,\nbir hayalin iç cebinde sakladım.\nİç cebim biraz delik ama sen hâlâ ordasın."
+            }
+        ];
+
+        document.getElementById('bas-btn').addEventListener('click', async () => {
+            const logDiv = document.getElementById('log');
+            logDiv.innerHTML = "Matbaa çalışmaya başladı...<br>";
+            
+            for (let i = 0; i < siirler.length; i++) {
+                try {
+                    await addDoc(collection(db, "siirler"), { 
+                        baslik: siirler[i].baslik, 
+                        tarih: siirler[i].tarih, 
+                        icerik: siirler[i].icerik, 
+                        zamanDamgasi: new Date(Date.now() - i * 1000) // Sıralama bozulmasın diye ufak zaman farkı
+                    });
+                    logDiv.innerHTML += `<span style="color: #4CAF50;">✔ ${siirler[i].baslik} basıldı.</span><br>`;
+                } catch (e) {
+                    logDiv.innerHTML += `<span style="color: red;">✖ ${siirler[i].baslik} basılamadı! Hata: ${e}</span><br>`;
+                }
+            }
+            logDiv.innerHTML += "<br><strong style='color: white;'>İŞLEM TAMAMLANDI! Artık 'Şiirler' sayfana gidip bakabilirsin.</strong>";
+        });
+    </script>
+</body>
+</html>
