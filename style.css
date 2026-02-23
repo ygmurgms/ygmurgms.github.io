@@ -273,39 +273,33 @@ body.dark-mode #gozlem-kutusu {
         line-height: 1.6 !important;
     }
 
-    }
+   .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-/* =========================================
-   ŞAİRİN GÜNLÜĞÜ: EL YAZISI EFEKTİ
-========================================= */
-
-/* Sitedeki tüm şiirleri ve alıntıları el yazısı yap */
-.hero-epigraph blockquote,
-.poem-snippet blockquote,
-.didem-quote,
-.siir-metni {
-    font-family: 'Caveat', cursive !important;
-    font-size: 2rem !important; /* El yazısı genelde küçük durur, o yüzden biraz büyüttük */
-    line-height: 1.4 !important;
-    letter-spacing: 1.5px !important;
-    font-weight: 500 !important;
-    color: #e0dcd3 !important; /* Rengi biraz daha defter yaprağına uygun, kırık beyaz yaptık */
+.social-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #444; /* Normalde gri */
+    text-decoration: none;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    font-weight: 700;
 }
-/* Telefonlar için özel ayarlar (Ekran 600px'den küçükse) */
-@media only screen and (max-width: 600px) {
-    body {
-        padding: 15px; /* Kenar boşluklarını daralt */
-    }
-    h1 {
-        font-size: 24px !important; /* Başlıkları telefona göre küçült */
-    }
-    p {
-        font-size: 16px !important; /* Şiir metinlerini okunur yap */
-        line-height: 1.6; /* Satır aralarını ferahlat */
-    }
-    .container {
-        width: 100% !important; /* İçeriği ekrana yay */
-        margin: 0 !important;
-    }
 
+.social-btn:hover {
+    color: #c80000; /* Üstüne gelince kırmızı */
+    border-color: #c80000;
+    background: rgba(200, 0, 0, 0.05);
+}
+
+/* Gece modunda beyaz görünsünler */
+.dark-mode .social-btn {
+    color: #eee;
+    border-color: #333;
+}
