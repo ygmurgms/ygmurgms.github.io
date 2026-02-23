@@ -301,6 +301,51 @@ window.addEventListener('load', sehirGozlemi);
     <span class="log-baslik">GÖZLEM RAPORU:</span>
     <span id="lokasyon-metni">Veri aranıyor...</span>
 </div>
+<script>
+    setTimeout(async () => {
+        let ajanMetni = "";
 
+        // 1. Cihaz Tespiti
+        let userAgent = navigator.userAgent.toLowerCase();
+        let cihaz = "bilinmeyen bir cihaz";
+        if(userAgent.includes("iphone")) cihaz = "o elindeki iPhone";
+        else if(userAgent.includes("android")) cihaz = "Android telefonun";
+        else if(userAgent.includes("windows")) cihaz = "Windows bilgisayarın";
+        else if(userAgent.includes("mac")) cihaz = "Mac bilgisayarın";
+
+        ajanMetni += `👀 Buraya ${cihaz} ile girdiğini görebiliyorum.<br><br>`;
+
+        // 2. Şarj Tespiti (Özellikle Android ve PC'lerde mükemmel çalışır)
+        if ('getBattery' in navigator) {
+            try {
+                let battery = await navigator.getBattery();
+                let sarj = Math.round(battery.level * 100);
+                let durum = battery.charging ? "şu an prize takılı" : "şarjdan çekilmiş";
+                
+                if(sarj < 20 && !battery.charging) {
+                    ajanMetni += `🔋 Ayrıca şarjın %${sarj} kalmış. Bence o cihazı acil şarja takmalısın.<br><br>`;
+                } else {
+                    ajanMetni += `🔋 Bataryanın %${sarj} seviyesinde ve ${durum} olması da gözümden kaçmadı.<br><br>`;
+                }
+            } catch(e) {}
+        }
+
+        // 3. Çekirdek Sayısı ve Final Vuruşu
+        let cekirdek = navigator.hardwareConcurrency;
+        if(cekirdek) {
+             ajanMetni += `⚙️ Cihazındaki ${cekirdek} çekirdekli işlemci bile benden saklanmana yetmez. İyi okumalar.`;
+        }
+
+        // KUTUYU EKRANIN SAĞ ALTINA BİR ANDA ÇIKAR (Hacker Tarzı)
+        const kutu = document.createElement("div");
+        kutu.style.cssText = "position:fixed; bottom:20px; right:20px; background:rgba(0, 0, 0, 0.9); color:#00ff00; padding:15px; font-family:monospace; font-size:13px; border:1px solid #00ff00; border-radius:5px; z-index:9999; box-shadow: 0 0 15px rgba(0,255,0,0.4); max-width: 250px;";
+        kutu.innerHTML = "<strong style='color:red;'>[SİSTEM ANALİZİ]</strong><br><br>" + ajanMetni;
+        
+        // Site açıldıktan 4 saniye sonra kutuyu ekrana fırlatır
+        document.body.appendChild(kutu);
+
+    }, 4000); 
+</script>
 </body>
 </html>
+
