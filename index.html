@@ -327,20 +327,29 @@ window.addEventListener('load', sehirGozlemi);
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+  <div id="cerez-kutusu" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #111; border-top: 2px solid #c80000; color: #fff; padding: 20px; z-index: 9999999 !important; font-family: sans-serif; box-shadow: 0 -5px 20px rgba(0,0,0,0.9);">
+    <div style="max-width: 800px; margin: auto; text-align: center;">
+        <p style="margin-bottom: 15px; font-size: 14px;">Bu mahallede yolunuzu bulabilmeniz için çerezler kullanıyoruz. <a href="gizlilik-politikasi.html" style="color: #c80000; font-weight: bold;">Gizlilik Politikamızı</a> kabul ediyor musunuz?</p>
+        <button id="cerez-kabul" style="background: #c80000; color: white; border: none; padding: 10px 30px; cursor: pointer; border-radius: 4px; font-weight: bold;">Pusulayı Onayla</button>
+    </div>
+</div>
+
+<script>
+    // Tarayıcı hafızasını kontrol et ve göster
+    window.onload = function() {
         if (!localStorage.getItem("cerezKabulEdildi")) {
             document.getElementById("cerez-kutusu").style.display = "block";
         }
-        document.getElementById("cerez-kabul").addEventListener("click", function() {
+        document.getElementById("cerez-kabul").onclick = function() {
             localStorage.setItem("cerezKabulEdildi", "evet");
             document.getElementById("cerez-kutusu").style.display = "none";
-        });
-    });
+        };
+    };
 </script>
 
 </body>
 </html>
-   
+
 
 
 
