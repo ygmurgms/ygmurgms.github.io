@@ -33,67 +33,71 @@
         /* ÖZEL İMLEÇ (CURSOR) */
         #cursor { width: 10px; height: 10px; background: #c80000; position: fixed; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform 0.1s; }
 
-       /* SADECE MOBİL İÇİN JİLET GİBİ AYARLAR */
+     
+/* MOBİL ÇAKIŞMA VE ÜST ÜSTE BİNME FİX */
 @media only screen and (max-width: 768px) {
-    /* 1. Karmaşayı Çöz: Sayfayı yukarıdan aşağı iterek yer aç */
-    body { padding-top: 100px !important; }
+    /* 1. Sayfayı çok daha fazla aşağı it ki başlık görünür olsun */
+    body { 
+        padding-top: 140px !important; 
+    }
 
-    /* 2. Sipariş Bandı: En tepede sabit kalsın, okunur olsun */
+    /* 2. Sipariş Bandı: Yüksekliği azalt, yazıyı tek satıra zorla */
     .top-banner {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         z-index: 10000;
-        font-size: 0.7rem !important;
-        padding: 12px 5px !important;
+        font-size: 0.6rem !important; /* Daha küçük font */
+        padding: 8px 5px !important;
+        white-space: nowrap; /* Yazıyı tek satırda tut */
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-    .top-banner a { display: block; margin: 4px 0 0 0 !important; font-size: 0.75rem; color: #fff; }
+    .top-banner a { 
+        margin-left: 5px !important; 
+        font-size: 0.65rem !important;
+        text-decoration: underline;
+    }
 
-    /* 3. Menü: Sipariş bandının hemen altına yapışsın */
+    /* 3. Menü (Navbar): Sipariş bandının hemen altına, daha ince yerleş */
     header.top-navbar {
         position: fixed;
-        top: 55px; /* Bandın altına yerleş */
+        top: 35px; /* Bandın yüksekliğine göre ayarlandı */
         left: 0;
         width: 100%;
-        background: inherit; /* Mevcut temanın rengini al */
+        height: auto;
+        background: rgba(255, 255, 255, 0.95); /* Hafif şeffaf beyaz */
         z-index: 9999;
-        padding: 10px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
+        padding: 5px 0 !important;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
     }
-    .nav-links { gap: 5px !important; }
-    .nav-links a, #gece-modu-butonu { font-size: 0.6rem !important; padding: 6px 8px !important; border: 1px solid rgba(200,0,0,0.2); }
+    
+    .nav-brand { font-size: 1rem !important; } /* Logo kısmını küçült */
+    
+    .nav-links { 
+        gap: 5px !important; 
+        margin-top: 2px;
+    }
+    
+    .nav-links a, #gece-modu-butonu { 
+        font-size: 0.55rem !important; 
+        padding: 4px 6px !important; 
+    }
 
-    /* 4. Başlık: Ekrandan asla taşmaz, dinamik ölçeklenir */
+    /* 4. COMPASS İsmi: Artık tepedekiler tarafından kapatılmaz */
     .hero-title {
-        font-size: 13vw !important; 
-        margin: 40px 0 10px 0 !important;
-        letter-spacing: -2px !important;
-        line-height: 1 !important;
+        font-size: 11vw !important; /* Biraz daha küçültüldü */
+        margin-top: 20px !important;
+        letter-spacing: -1px !important;
     }
-    .hero-author { font-size: 0.9rem !important; letter-spacing: 4px !important; }
 
-    /* 5. Çerez Banner: Mobilde en alta çek, tepeyi rahatlat */
+    /* 5. Çerez Banner: En alta, en güvenli yere */
     #cerez-kutusu {
         top: auto !important;
         bottom: 0 !important;
-        border-top: 2px solid #fff;
-        padding: 15px 10px !important;
-        font-size: 0.7rem !important;
-        z-index: 100000 !important;
-    }
-
-    /* 6. Gözlem Kutusu: Çerez bannerının hemen üstünde dursun */
-    #gozlem-kutusu {
-        bottom: 75px !important;
-        left: 10px !important;
-        right: 10px !important;
-        width: auto !important;
+        padding: 15px !important;
         font-size: 0.65rem !important;
-        padding: 8px !important;
     }
     </style>
 </head>
@@ -235,4 +239,5 @@
     </script>
 </body>
 </html>
+
 
