@@ -33,18 +33,68 @@
         /* ÖZEL İMLEÇ (CURSOR) */
         #cursor { width: 10px; height: 10px; background: #c80000; position: fixed; border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: transform 0.1s; }
 
-        /* MOBİL FİX - V2 */
-        @media only screen and (max-width: 768px) {
-            body { padding-top: 50px !important; }
-            .hero-title { font-size: 3rem !important; }
-            .hero-section { height: auto; padding: 80px 20px; }
-            .top-banner { font-size: 0.6rem !important; }
-            #gozlem-kutusu { left: 10px; right: 10px; bottom: 10px; font-size: 0.65rem; }
-            #cursor { display: none; } /* Mobilde imleç gizli */
-        }
+       /* SADECE MOBİL İÇİN JİLET GİBİ AYARLAR */
+@media only screen and (max-width: 768px) {
+    /* 1. Karmaşayı Çöz: Sayfayı yukarıdan aşağı iterek yer aç */
+    body { padding-top: 100px !important; }
 
-        @keyframes spinNeedle { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .locked-north { transform: rotate(0deg) !important; transition: transform 0.4s ease-out; }
+    /* 2. Sipariş Bandı: En tepede sabit kalsın, okunur olsun */
+    .top-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10000;
+        font-size: 0.7rem !important;
+        padding: 12px 5px !important;
+    }
+    .top-banner a { display: block; margin: 4px 0 0 0 !important; font-size: 0.75rem; color: #fff; }
+
+    /* 3. Menü: Sipariş bandının hemen altına yapışsın */
+    header.top-navbar {
+        position: fixed;
+        top: 55px; /* Bandın altına yerleş */
+        left: 0;
+        width: 100%;
+        background: inherit; /* Mevcut temanın rengini al */
+        z-index: 9999;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+    .nav-links { gap: 5px !important; }
+    .nav-links a, #gece-modu-butonu { font-size: 0.6rem !important; padding: 6px 8px !important; border: 1px solid rgba(200,0,0,0.2); }
+
+    /* 4. Başlık: Ekrandan asla taşmaz, dinamik ölçeklenir */
+    .hero-title {
+        font-size: 13vw !important; 
+        margin: 40px 0 10px 0 !important;
+        letter-spacing: -2px !important;
+        line-height: 1 !important;
+    }
+    .hero-author { font-size: 0.9rem !important; letter-spacing: 4px !important; }
+
+    /* 5. Çerez Banner: Mobilde en alta çek, tepeyi rahatlat */
+    #cerez-kutusu {
+        top: auto !important;
+        bottom: 0 !important;
+        border-top: 2px solid #fff;
+        padding: 15px 10px !important;
+        font-size: 0.7rem !important;
+        z-index: 100000 !important;
+    }
+
+    /* 6. Gözlem Kutusu: Çerez bannerının hemen üstünde dursun */
+    #gozlem-kutusu {
+        bottom: 75px !important;
+        left: 10px !important;
+        right: 10px !important;
+        width: auto !important;
+        font-size: 0.65rem !important;
+        padding: 8px !important;
+    }
     </style>
 </head>
 <body>
@@ -185,3 +235,4 @@
     </script>
 </body>
 </html>
+
