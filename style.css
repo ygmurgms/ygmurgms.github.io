@@ -242,4 +242,49 @@ body.dark-mode #gozlem-kutusu {
         font-size: 1.2rem !important;
     }
 }
+/* =========================================
+   MOBİL CİHAZLAR İÇİN ACİL DÜZENLEMELER
+   (Bu kısım sitenin telefonda dağılmasını önler)
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* 1. Üstteki koca boşluğu ayarla ki menü yazıları ezmesin */
+    body {
+       padding-top: 130px !important;
+    }
+
+    /* 2. O devasa "COMPASS." yazısını telefona sığdır */
+    .hero-title {
+        font-size: 3.2rem !important; /* Boyutu yarıya indirdik */
+        line-height: 1.2 !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 3. Didem Madak alıntısını biraz küçült */
+    .hero-epigraph blockquote {
+        font-size: 1.1rem !important;
+        padding: 15px !important;
+    }
+
+    /* 4. Şiirler sayfasındaki alıntı kutularını daralt */
+    .poem-snippet blockquote {
+       font-size: 1rem !important;
+       margin: 20px 10px !important; /* Kenarlardan boşluk bırak */
+    }
+
+    /* 5. Sayfa başlıklarını (Şiirler, Hakkımda vb.) küçült */
+    .preview-header h1, .about-title, .didem-title {
+        font-size: 2.2rem !important;
+    }
+
+    /* 6. Menü linklerini biraz sıkılaştır */
+    .nav-links li {
+        margin: 0 8px !important;
+    }
+    .nav-links a {
+        font-size: 0.9rem !important;
+    }
+}
 
