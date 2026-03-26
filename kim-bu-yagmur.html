@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* ANA SAYFAYLA AYNI MİMARİ */
         :root {
             --dergi-kirmizi: #c8102e;
             --dergi-siyah: #111111;
@@ -67,4 +66,113 @@
             letter-spacing: -1px;
         }
 
-        .bio-content
+        .bio-content p {
+            font-size: 1.15rem;
+            color: var(--dergi-koyu-gri);
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .drop-cap {
+            float: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            line-height: 0.8;
+            padding-top: 8px;
+            padding-right: 12px;
+            color: var(--dergi-kirmizi);
+            font-weight: 900;
+        }
+
+        /* VURUCU SÖZ İÇİN ÖZEL ALAN */
+        .bio-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--dergi-kirmizi);
+            text-align: center;
+            margin: 50px 0;
+            padding: 40px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            line-height: 1.4;
+        }
+
+        .bio-signature {
+            text-align: center;
+            margin-top: 80px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        /* FOOTER */
+        footer { background-color: var(--dergi-siyah); color: var(--dergi-beyaz); text-align: center; padding: 60px 20px; margin-top: 40px; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
+        .footer-text { font-size: 0.75rem; color: #888; letter-spacing: 2px; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 20px; padding: 20px; position: relative; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .bio-content p { text-align: left; }
+            .bio-quote { font-size: 1.3rem; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda. 
+        <a href="#">HEMEN SİPARİŞ VER</a>
+    </div>
+
+    <header>
+        <a href="index.html" class="logo">COMPASS.</a>
+        
+        <nav class="nav-links">
+            <a href="index.html">ANA SAYFA</a>
+            <a href="icindekiler.html">ŞİİRLER</a>
+            <a href="didemvari.html">DİDEMVARİ</a>
+            <a href="kim-bu-yagmur.html" style="color: var(--dergi-kirmizi); font-weight: 800; border-bottom: 2px solid var(--dergi-kirmizi); padding-bottom: 2px;">KİM BU YAĞMUR</a>
+            <a href="iletisim.html">SES VER</a>
+        </nav>
+    </header>
+
+    <main class="bio-container">
+        <span class="bio-subtitle">Geçmemiş Geçmişimin Meraklıları İçin</span>
+        <h1 class="bio-title">YAĞMUR GÜMÜŞ</h1>
+
+        <div class="bio-content">
+            <p><span class="drop-cap">İ</span>stanbul Üsküdar’da doğdum. O sabah hava ne süt kokuyordu ne de umut. İki durak ötede biri ölmüş, biri gülüyordu. Yani sıradan bir İstanbul günüydü. Sonra İzmir’e taşındık; bir kenar mahallenin sıcağına yerleştik. Penceremizden görünen tek şey, çamaşır ipine asılmış yorgun umutlardı. Ben de o ipte kuruyan çocukluğumun henüz kurumamış ucundan tutundum hayata.</p>
+
+            <p>Kendimi bildim bileli taşınır dururum. Her şehirde bir kalbim kaldı. Her sokakta eksik bir anne, her adreste geçmişte üstü çizilmiş bir benlik.</p>
+
+            <p>Şu an Manisa Celal Bayar Üniversitesi’nde Halkla İlişkiler eğitimi alıyorum. Ancak akademik unvanlardan, şehir isimlerinden ve meslek tanımlarından bağımsız olarak, ben kelimelerin içinde varım. Sanatla ilk ilişkim, bir müzik akademisinde aldığım bağlama eğitimiyle kuruldu. Aynı babam gibi. Babam; cebinde yıpranmış iyilikler taşıyan adamlardandı.</p>
+
+            <div class="bio-quote">
+                "Ölmedi. Sadece gitti. Ama bazı gidişler mezar taşı gibi dikilir insanın kalbine."
+            </div>
+
+            <p>Çiğdem gittiğinde on dört yaşındaydım. O gün anladım: Acının dili yoktu ama harfleri vardı. O yaşta hayatımda büyük bir boşluk açan Çiğdem’im, artık yanımda olmasa da bana kelimelerin bir insanı, bir acıyı nasıl taşıyacağını öğretti. Yoklukları, eksik kalanları, içime sığmayanları dizelere döktüm.</p>
+
+            <p>İlk şiirim Dut Ağacı, bir edebiyat dergisinde yayımlandığında bir mahalle çocuğu gibi sevindim. Sanki annem sobanın üstüne yeni çay koymuş gibi. Ben, kelimelerle kendine ev kuranlardanım; yolunu arayan bir şiir işçisiyim. Dizelerden duvar örüp dünyaya içeriden bakan bir sığınmacıyım.</p>
+
+            <p>Sokak lambasının titrek ışığında yazdım çoğunu ya da annemin gözyaşına benzeyen yağmurların altında. Kelimelerden bir mahalle kurdum kendime. İçinde anneler var, çocuklar var, terk edilen sandalyeler var. Ve hep bir kenarda, hiç gitmemiş gibi bekleyen bir Çiğdem...</p>
+
+            <p>Yolumun nereye varacağını, hangi rüzgârın beni hangi kıyıya sürükleyeceğini bilmiyorum. Bildiğim tek şey şu: Yazmak benim için eylem değil; sütten kesilmiş bir kadının yeniden yoğurt mayalamaya çalışması gibi bir şey.</p>
+        </div>
+
+        <div class="bio-signature">
+            Kelimelerden sığınak kuranlara...
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-logo">COMPASS.</div>
+        <div class="footer-text" style="margin-bottom: 10px;">41°01'N 29°01'E — 38°25'N 27°08'E</div>
+        <div class="footer-text">© 2006 YAĞMUR GÜMÜŞ. TÜM HAKLARI KELİMELERE SAKLIDIR.</div>
+    </footer>
+
+</body>
+</html>
