@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* TEMEL AYARLAR VE RENKLER */
         :root {
             --dergi-kirmizi: #c8102e;
             --dergi-siyah: #111111;
@@ -29,20 +28,6 @@
             overflow-x: hidden;
         }
 
-        /* 1. ÜST BİLGİ BANDI */
-        .top-bar {
-            background-color: var(--dergi-kirmizi);
-            color: #fff;
-            text-align: center;
-            padding: 10px 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .top-bar a { color: #fff; text-decoration: underline; margin-left: 10px; font-weight: 800; }
-
-        /* 2. ANA MENÜ (NAVBAR) */
         header {
             border-bottom: 2px solid var(--dergi-siyah);
             padding: 20px 5%;
@@ -51,14 +36,15 @@
             align-items: center;
             background: var(--dergi-beyaz);
         }
+
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-weight: 900;
             color: var(--dergi-siyah);
             text-decoration: none;
-            letter-spacing: -1px;
         }
+
         .nav-links { display: flex; gap: 25px; align-items: center; }
         .nav-links a {
             text-decoration: none;
@@ -66,116 +52,36 @@
             font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 1px;
-            transition: color 0.3s;
         }
-        .nav-links a:hover { color: var(--dergi-kirmizi); }
 
-        /* 3. ANA KAPAK */
         .hero { padding: 80px 5%; text-align: center; border-bottom: 1px solid #ddd; }
-        .hero-date { font-size: 0.8rem; color: var(--dergi-kirmizi); font-weight: 800; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; }
         .hero-title {
             font-family: 'Playfair Display', serif;
             font-size: clamp(3.5rem, 10vw, 8rem); 
             font-weight: 900;
             line-height: 1;
-            letter-spacing: -2px;
             margin-bottom: 30px;
-            color: var(--dergi-siyah);
-        }
-        .hero-author { font-size: 1.2rem; font-weight: 600; letter-spacing: 5px; color: var(--dergi-koyu-gri); }
-
-        /* 4. İÇERİK IZGARASI */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            padding: 60px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .article-card { border-top: 3px solid var(--dergi-kirmizi); padding-top: 20px; }
-        .article-category { font-size: 0.7rem; color: var(--dergi-kirmizi); font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; display: block; }
-        .article-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; line-height: 1.2; }
-        .article-excerpt { font-size: 0.95rem; color: var(--dergi-koyu-gri); margin-bottom: 20px; }
-        .read-more { font-size: 0.8rem; font-weight: 800; color: var(--dergi-siyah); text-decoration: none; border-bottom: 2px solid var(--dergi-kirmizi); padding-bottom: 3px; }
-
-        /* 5. FOOTER */
-        footer { background-color: var(--dergi-siyah); color: var(--dergi-beyaz); text-align: center; padding: 60px 20px; margin-top: 40px; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
-        .footer-text { font-size: 0.75rem; color: #888; letter-spacing: 2px; }
-
-        /* MOBİL UYARLAMA */
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 20px; padding: 20px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
-            .hero { padding: 50px 20px; }
-            .top-bar { font-size: 0.65rem; padding: 12px 10px; }
-            .top-bar a { display: block; margin-top: 5px; margin-left: 0; }
-            .content-grid { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda. 
-        <a href="#">HEMEN SİPARİŞ VER</a>
-    </div>
-
     <header>
         <a href="index.html" class="logo">COMPASS.</a>
-        
         <nav class="nav-links">
-            <a href="index.html" style="color: var(--dergi-kirmizi); font-weight: 800; border-bottom: 2px solid var(--dergi-kirmizi); padding-bottom: 2px;">ANA SAYFA</a>
-            <a href="icindekiler.html">ŞİİRLER</a>
+            <a href="index.html" style="color: var(--dergi-kirmizi); border-bottom: 2px solid var(--dergi-kirmizi);">ANA SAYFA</a>
+            <a href="siirler.html">ŞİİRLER</a>
             <a href="didemvari.html">DİDEMVARİ ŞEYLER</a>
-            <a href="hakkinda.html">KİM BU YAĞMUR</a>
-            <a href="iletisim.html">SES VER</a>
+            <a href="kim-bu-yagmur.html">KİM BU YAĞMUR</a>
+            <a href="ses-ver.html">SES VER</a>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-date"> | TEMMUZ 2019</div>
+        <div style="color: var(--dergi-kirmizi); font-weight: 800; letter-spacing: 4px; margin-bottom: 20px;">TEMMUZ/2019</div>
         <h1 class="hero-title">COMPASS.</h1>
-        <div class="hero-author">YAĞMUR GÜMÜŞ</div>
-        
-        <div style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            <blockquote style="font-family:'Playfair Display', serif; font-style:italic; font-size: 1.4rem; color: var(--dergi-koyu-gri);">
-                “Sevgili anneciğim, binlerce kez açıldım, binlerce kez kapandım yokluğunda."
-            </blockquote>
-            <cite style="display:block; margin-top:15px; color:var(--dergi-kirmizi); font-weight:800; font-size: 0.8rem; letter-spacing: 2px;">— DİDEM MADAK</cite>
-        </div>
+        <div style="font-size: 1.2rem; font-weight: 600; letter-spacing: 5px; color: var(--dergi-koyu-gri);">YAĞMUR GÜMÜŞ</div>
     </section>
-
-    <section class="content-grid">
-        <article class="article-card">
-            <h2 class="article-title">SARILINCA GEÇER SOKAĞI</h2>
-            <p class="article-excerpt">Ve belki bir gün, “Sarılınca Geçer Sokağı”nda karşılaşırsak, ben yine çocuk hâlimle geleceğim karşına. Ama bu defa üşüdüğümü söylemeyeceğim. “Sessizlik, senin bana verdiğin en soğuk hediyeydi.” Ve ben, teşekkür edemediğim her an için bir sokak kedisinin gözlerini öptüm.</p>
-        </article>
-
-        <article class="article-card">
-    
-            <h2 class="article-title">BİR AVUÇ TOPRAK</h2>
-            <p class="article-excerpt">Bizim inancımızda,
-bir karıncanın ahı arş-ı âlâyı titretirdi çocuk.
-                ...
-
-Anneannem “Hiç" olmayı öğretirdi bize.
-Bana "Nevruzum" derdi, yüzümü o çatlak avuçlarının arasına alıp.
-“Nevruzum... Nihayetinde bir avuç topraksın, sakın ola kibirlenme."
-
-Bir avuç toprak...
-Alt tarafı bir avuç toprak.
-</p>
-            
-        </article>
-    </section>
-
-    <footer>
-        <div class="footer-logo">COMPASS.</div>
-        <div class="footer-text" style="margin-bottom: 10px;">41°01'N 29°01'E — 38°25'N 27°08'E</div>
-        <div class="footer-text">© 2006 YAĞMUR GÜMÜŞ. TÜM HAKLARI KELİMELERE SAKLIDIR.</div>
-    </footer>
 
 </body>
 </html>
