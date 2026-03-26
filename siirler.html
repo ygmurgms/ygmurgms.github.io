@@ -2,312 +2,167 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Şiirler | YAĞMUR GÜMÜŞ</title>
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMPASS | Yağmur Gümüş</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Şiirler | COMPASS.</title>
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="YAZAR | Yağmur GÜMÜŞ">
-    <meta property="og:description" content="Unutulmanın Mahalledeki Tadı">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="YAZAR | Yağmur GÜMÜŞ">
-    <meta name="twitter:description" content="Unutulmanın Mahalledeki Tadı">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
+
     <style>
-        .poems-preview-container {
-            max-width: 900px;
-            margin: 80px auto;
-            padding: 0 20px;
-            animation: fadeIn 1.2s ease-out;
+        :root {
+            --dergi-kirmizi: #c8102e;
+            --dergi-siyah: #111111;
+            --dergi-koyu-gri: #333333;
+            --dergi-acik-gri: #f4f4f4;
+            --dergi-beyaz: #fcfcfc;
         }
-        .preview-header { text-align: center; margin-bottom: 100px; }
-        .preview-header h1 { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; margin-bottom: 10px; }
-        .preview-header p { font-family: 'Montserrat', sans-serif; color: var(--kafa-red); letter-spacing: 5px; text-transform: uppercase; font-size: 0.9rem; font-weight: 700; }
 
-        .poem-snippet {
-            margin-bottom: 120px;
-            position: relative;
-            border-left: 3px solid var(--kafa-red);
-            padding-left: 40px;
-        }
-        .poem-snippet h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-            color: #111;
-        }
-        .poem-snippet .origin {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
             font-family: 'Montserrat', sans-serif;
-            font-style: italic;
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 25px;
+            background-color: var(--dergi-beyaz);
+            color: var(--dergi-siyah);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ÜST BANT VE MENÜ */
+        .top-bar { background-color: var(--dergi-kirmizi); color: #fff; text-align: center; padding: 10px 15px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        .top-bar a { color: #fff; text-decoration: underline; margin-left: 10px; font-weight: 800; }
+
+        header { border-bottom: 2px solid var(--dergi-siyah); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: var(--dergi-beyaz); position: sticky; top: 0; z-index: 100; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--dergi-siyah); text-decoration: none; letter-spacing: -1px; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dergi-koyu-gri); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--dergi-kirmizi); }
+
+        /* ARŞİV BAŞLIĞI */
+        .archive-header {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--dergi-acik-gri);
+            border-bottom: 1px solid #ddd;
+        }
+        .archive-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            color: var(--dergi-siyah);
+        }
+        .archive-subtitle {
+            font-size: 0.8rem;
+            color: var(--dergi-kirmizi);
+            font-weight: 800;
+            letter-spacing: 4px;
+            margin-top: 10px;
             display: block;
         }
-        .poem-snippet blockquote {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            font-weight: 500;
-        }
-        .poem-snippet blockquote span {
-            color: var(--kafa-red);
-            font-weight: 900;
-        }
 
-        .book-footer {
-            border-top: 1px solid #ddd;
-            padding-top: 60px;
-            text-align: center;
-            margin-top: 100px;
+        /* ŞİİRLER LİSTESİ */
+        .poems-feed {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
         }
-        .book-info {
+        
+        .poem-item {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+        
+        .poem-title {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            color: var(--dergi-siyah);
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
         }
-        .book-sub {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 40px;
+        
+        .poem-context {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #777;
+            margin-bottom: 30px;
+            display: block;
         }
-        .btn-contact {
-            display: inline-block;
-            border: 2px solid #111;
-            color: #111;
-            padding: 15px 40px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            letter-spacing: 2px;
-            transition: 0.3s;
+
+        .poem-body {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--dergi-koyu-gri);
+            white-space: pre-line; /* Alt satıra geçişleri korur */
         }
-        .btn-contact:hover {
-            background: #111;
-            color: white;
+
+        .poem-divider {
+            color: var(--dergi-kirmizi);
+            font-size: 1.5rem;
+            letter-spacing: 15px;
+            margin: 60px 0;
+            opacity: 0.5;
+        }
+
+        /* FOOTER */
+        footer { background-color: var(--dergi-siyah); color: var(--dergi-beyaz); text-align: center; padding: 60px 20px; margin-top: 40px; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
+        .footer-text { font-size: 0.75rem; color: #888; letter-spacing: 2px; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 20px; padding: 20px; position: relative; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .poem-body { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-    <div id="cursor"></div>
-<div id="progress-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: transparent; z-index: 999999;">
-        <div id="progress-bar" style="height: 3px; background: var(--kafa-red, #c80000); width: 0%; transition: width 0.1s;"></div>
+
+    <div class="top-bar">
+        İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda. 
+        <a href="#">HEMEN SİPARİŞ VER</a>
     </div>
 
-    <script>
-        // Sayfa kaydırıldıkça kırmızı çizgiyi dolduran motor
-        window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progress-bar").style.width = scrolled + "%";
-        };
-    </script>
-    <header class="top-navbar">
-        <a href="index.html" class="nav-brand">COMPASS.</a>
+    <header>
+        <a href="index.html" class="logo">COMPASS.</a>
+        
         <nav class="nav-links">
-            <button id="gece-modu-butonu">MODU DEĞİŞTİR</button>
-            <a href="siirler.html">ŞİİRLER</a>
-            <a href="didemvari.html">DİDEMVARİ ŞEYLER</a>
-            <a href="kim-bu-yagmur.html">KİM BU YAĞMUR</a>
-            <a href="ses-ver.html" style="color: var(--kafa-red); font-weight: 800;">SES VER</a>
+            <a href="index.html">ANA SAYFA</a>
+            <a href="icindekiler.html" style="color: var(--dergi-kirmizi); font-weight: 800; border-bottom: 2px solid var(--dergi-kirmizi); padding-bottom: 2px;">ŞİİRLER</a>
+            <a href="didemvari.html">DİDEMVARİ</a>
+            <a href="hakkinda.html">KİM BU YAĞMUR</a>
+            <a href="iletisim.html">SES VER</a>
         </nav>
     </header>
 
-    <main class="poems-preview-container">
-        <div class="preview-header">
-            <h1>Şiirler</h1>
-            <p>Unutulmanın Mahalledeki Tadı</p>
-        </div>
-
-        <div class="poem-snippet">
-            <h2>ON BİR TEMMUZ</h2>
-            <span class="origin">(bu şiir birçok kez yazıldı, birçok kez silindi)</span>
-            <blockquote>"O günden sonra ayrılığın yeni adını <span>“On Bir Temmuz”</span> koydum. Ve bazı sabahlar hâlâ on dört yaşıma uyanıyorum, yalınayak iniyorum merdivenleri."</blockquote>
-        </div>
-
-        <div class="poem-snippet">
-            <h2>ANNEME SÖYLEMEDİM BU ŞİİRİ</h2>
-            <span class="origin">(annem şiir yazmamı yasakladıktan sonra yazdım)</span>
-            <blockquote>"Sonra annem çağırıyor balkondan: 'Yeter bu kadar edebiyat, gel de iki yumurta kır.' Kırıyorum... <span>Ama sarısı hep sana akıyor şiirin.</span>"</blockquote>
-        </div>
-
-        <div class="poem-snippet">
-            <h2>GICIRTISIYLA YAŞAYAN BİSİKLET</h2>
-            <span class="origin">(paslı bir bisikletin selesine kazındı)</span>
-            <blockquote>"Ah benim, saklambaçların sonuna varamadan sobelenen çocukluğum… <span>Bir bisiklet gibi kaldın köşesinde sokağın.</span> Kimsenin binmediği ama hâlâ gıcırtısıyla yaşayan."</blockquote>
-        </div>
-
-        <div class="poem-snippet">
-            <h2>SANCILI BÜTÜNLÜK</h2>
-            <span class="origin">(apartman boşluğunda yankılandı)</span>
-            <blockquote>"Seni sevmek; içimde hiç doğmamış bir çocuğun ilk çığlığı gibi bir şey. <span>Sen, içimde kabaran bir doğum sancısısın.</span> Hiç geçmeyecek ama hep umut verecek bir acı."</blockquote>
-        </div>
-
-        <div class="poem-snippet">
-            <h2>BENEKLİ KELEBEK</h2>
-            <span class="origin">(bir kelebeğin kanatlarındaydı)</span>
-            <blockquote>"Bilmezdim; dört tarafı sızıyla çevrili bir dünyada, <span>Tanrı’nın, ölümü bir armağanmışçasına kanadıma kondurduğunu.</span>"</blockquote>
-        </div>
-
-        <div class="poem-snippet">
-            <h2>SİRİUS</h2>
-            <span class="origin">(sadece kalmak için yazıldı)</span>
-            <blockquote>"Çiçekli değil, çığlıkla karışık çiğdemli dualar dökülecek avuçlarımdan. <span>(Çiğdem: Mahallemizin en güvenilmez vaadi.)</span>"</blockquote>
-        </div>
-
-        <div class="poem-snippet">
-            <h2>GEÇMİŞE DÖNDÜM YÜZÜMÜ</h2>
-            <span class="origin">(eski bir defterin sararmış sayfalarına yazıldı)</span>
-            <blockquote>"Geride bıraktım geçmemiş geçmişi ve dedim ki: <span>“Hâlsizliğimi mazur gör, sensizliğimdendir.”</span>"</blockquote>
-        </div>
-
-        <footer class="book-footer">
-            <div class="book-info">Unutulmanın Mahalledeki Tadı</div>
-            <div class="book-sub">Tüm şiirler ve hikayeler kitaptan alınmıştır.</div>
-            <a href="ses-ver.html" class="btn-contact">YAZARLA İLETİŞİME GEÇ</a>
-        </footer>
-
-    </main>
-  <div style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: #999; letter-spacing: 3px; text-transform: uppercase;">
-            © 2006 YAĞMUR GÜMÜŞ. Tüm hakları kelimelere saklıdır.
-        </div>
-        <div id="copy-tooltip">
-        SÖZÜ KOPYALA
+    <div class="archive-header">
+        <h1 class="archive-title">Şiir Arşivi</h1>
+        <span class="archive-subtitle">İÇİMDEKİLER VE DÖKÜLENLER</span>
     </div>
 
-    <style>
-        /* Kopyala Butonu Tasarımı */
-        #copy-tooltip {
-            position: absolute;
-            background: #111;
-            color: #fff;
-            padding: 8px 16px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            border-radius: 3px;
-            cursor: pointer;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.2s ease, background 0.3s;
-            z-index: 99999;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        #copy-tooltip::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -6px;
-            border-width: 6px;
-            border-style: solid;
-            border-color: #111 transparent transparent transparent;
-        }
-        #copy-tooltip:hover {
-            background: var(--kafa-red, #c80000);
-        }
-        #copy-tooltip:hover::after {
-            border-color: var(--kafa-red, #c80000) transparent transparent transparent;
-        }
-    </style>
+    <main class="poems-feed">
 
-    <script>
-        document.addEventListener('selectionchange', () => {
-            const tooltip = document.getElementById('copy-tooltip');
-            const selection = window.getSelection();
-            const text = selection.toString().trim();
+        <article class="poem-item">
+            <h2 class="poem-title">ON BİR TEMMUZ</h2>
+            <span class="poem-context">(bu şiir birçok kez yazıldı, birçok kez silindi)</span>
+            <div class="poem-body">"O günden sonra
+            ayrılığın yeni adını “On Bir Temmuz” koydum.
+            Ve bazı sabahlar hâlâ on dört yaşıma uyanıyorum,
+            Yalınayak iniyorum merdivenleri."</div>
+        </article>
 
-            if (text.length > 5) {
-                const range = selection.getRangeAt(0);
-                const rect = range.getBoundingClientRect();
-                
-                tooltip.style.display = 'block';
-                tooltip.innerHTML = 'SÖZÜ KOPYALA'; // Varsayılan yazı
-                
-                const top = rect.top + window.scrollY - 45;
-                const left = rect.left + window.scrollX + (rect.width / 2) - (tooltip.offsetWidth / 2);
-                
-                tooltip.style.top = `${top}px`;
-                tooltip.style.left = `${left}px`;
-                tooltip.style.opacity = 1;
-                
-                // Kopyalama İşlemi
-                tooltip.onclick = function() {
-                    const finalQuote = `"${text}"\n— Yağmur Gümüş`;
-                    navigator.clipboard.writeText(finalQuote).then(() => {
-                        tooltip.innerHTML = 'KOPYALANDI!';
-                        tooltip.style.background = '#4CAF50'; // Başarı rengi
-                        setTimeout(() => { tooltip.style.opacity = 0; }, 1500);
-                    });
-                };
-            } else {
-                tooltip.style.opacity = 0;
-                setTimeout(() => { if(window.getSelection().toString().trim().length === 0) tooltip.style.display = 'none'; }, 200);
-            }
-        });
-    </script>
-</body>
-</html>
-<script>
-    const buton = document.getElementById("gece-modu-butonu");
-    const govde = document.body;
+        <div class="poem-divider">* * *</div>
 
-    // Sayfa açıldığında hafızaya bak: Diğer sayfada ışığı kapatmış mıydık?
-    if (localStorage.getItem("tema") === "gece") {
-        govde.classList.add("dark-mode");
-    }
-
-    // Bu sayfadaki düğmeye basınca ne olsun?
-    if (buton) {
-        buton.addEventListener("click", function() {
-            govde.classList.toggle("dark-mode");
-
-            if (govde.classList.contains("dark-mode")) {
-                localStorage.setItem("tema", "gece");
-            } else {
-                localStorage.setItem("tema", "gunduz");
-            }
-        });
-    }
-</script>
-<script>
-    // SAYFA AÇILIRKEN SÜZÜLEREK GELSİN
-    document.body.style.opacity = "0";
-    document.body.style.transition = "opacity 0.8s ease-in-out";
-
-    window.onload = function() {
-        document.body.style.opacity = "1";
-    };
-</script>
-<script>
-    document.addEventListener('copy', function(e) {
-        // Seçilen yazıyı al
-        const secilenYazi = window.getSelection().toString();
-        
-        // Senin imzan (Burayı istediğin gibi değiştirebilirsin)
-        const imza = "\n\n-------------------------\nKaynak: COMPASS | Yağmur Gümüş (2006)\nBağlantı: " + window.location.href;
-        
-        // Yazının sonuna imzayı ekle
-        const yeniMetin = secilenYazi + imza;
-        
-        // Panoya yeni halini gönder
-        e.clipboardData.setData('text/plain', yeniMetin);
-        
-        // Tarayıcının standart kopyalamasını engelle (çünkü biz yenisini yaptık)
-        e.preventDefault();
-    });
-</script>
-</body>
-</html>
+        <article class="poem-item">
+            <h2 class="poem-title">DUT AĞACI</h2>
+            <span class="poem-context">(bu şiir, dut ağacının altında yazıldı)</span>
+            <div class="poem-body">"Kardeşiz," diyorum o çocuklarla!
+            Doğup da bırakılmadım mı gölgesiz ağaç altına?
+            Yoğrulmadım mı dut karası acılarla?
+            Koşuyoruz çocuklarla ağaca.
+            Hayır, dutlar duracak dalında, biz kopacağız.
+            O an anlıyorum; Kardeş değiliz işte o çocuklarla!
+            Ah çocuklar… Ruhumun duvarlarındaki sarmaşıklar…
+            Ben ise solmaya yüz tutmuş çiçeksi düşlerin başrolü.</div>
+        </article>
