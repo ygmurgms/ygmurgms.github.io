@@ -24,88 +24,63 @@
             font-family: 'Montserrat', sans-serif;
             background-color: var(--dergi-beyaz);
             color: var(--dergi-siyah);
-            line-height: 1.6;
+            line-height: 1.8;
             overflow-x: hidden;
         }
 
-        /* ÜST BANT VE MENÜ */
-        .top-bar { background-color: var(--dergi-kirmizi); color: #fff; text-align: center; padding: 10px 15px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        /* ÜST SİPARİŞ BANDI */
+        .top-bar {
+            background-color: var(--dergi-kirmizi);
+            color: #fff;
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
         .top-bar a { color: #fff; text-decoration: underline; margin-left: 10px; font-weight: 800; }
 
-        header { border-bottom: 2px solid var(--dergi-siyah); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: var(--dergi-beyaz); position: sticky; top: 0; z-index: 100; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--dergi-siyah); text-decoration: none; letter-spacing: -1px; }
-        .nav-links { display: flex; gap: 25px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--dergi-koyu-gri); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--dergi-kirmizi); }
-
-        /* ARŞİV BAŞLIĞI */
-        .archive-header {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: var(--dergi-acik-gri);
-            border-bottom: 1px solid #ddd;
-        }
-        .archive-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
-            color: var(--dergi-siyah);
-        }
-        .archive-subtitle {
-            font-size: 0.8rem;
-            color: var(--dergi-kirmizi);
-            font-weight: 800;
-            letter-spacing: 4px;
-            margin-top: 10px;
-            display: block;
+        header {
+            border-bottom: 2px solid var(--dergi-siyah);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--dergi-beyaz);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* ŞİİRLER LİSTESİ */
-        .poems-feed {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        
-        .poem-item {
-            margin-bottom: 80px;
-            text-align: center;
-        }
-        
-        .poem-title {
+        .logo {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
-            font-weight: 700;
+            font-weight: 900;
             color: var(--dergi-siyah);
-            margin-bottom: 5px;
-            letter-spacing: -0.5px;
-        }
-        
-        .poem-context {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: #777;
-            margin-bottom: 30px;
-            display: block;
+            text-decoration: none;
+            letter-spacing: -1px;
         }
 
-        .poem-body {
-            font-size: 1.1rem;
-            line-height: 2;
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
             color: var(--dergi-koyu-gri);
-            white-space: pre-line; /* Alt satıra geçişleri korur */
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        .poem-divider {
-            color: var(--dergi-kirmizi);
-            font-size: 1.5rem;
-            letter-spacing: 15px;
-            margin: 60px 0;
-            opacity: 0.5;
-        }
+        .archive-header { text-align: center; padding: 60px 20px; background-color: var(--dergi-acik-gri); border-bottom: 1px solid #ddd; }
+        .archive-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; }
 
-        /* FOOTER */
+        .poems-feed { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .poem-item { margin-bottom: 100px; text-align: center; }
+        .poem-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; margin-bottom: 5px; }
+        .poem-context { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.95rem; color: #777; margin-bottom: 30px; display: block; }
+        .poem-body { font-size: 1.1rem; line-height: 2.2; color: var(--dergi-koyu-gri); white-space: pre-line; }
+        .divider { color: var(--dergi-kirmizi); font-size: 1.5rem; margin: 60px 0; letter-spacing: 15px; opacity: 0.4; }
+
         footer { background-color: var(--dergi-siyah); color: var(--dergi-beyaz); text-align: center; padding: 60px 20px; margin-top: 40px; }
         .footer-logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
         .footer-text { font-size: 0.75rem; color: #888; letter-spacing: 2px; }
@@ -113,32 +88,29 @@
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 20px; padding: 20px; position: relative; }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
-            .poem-body { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda. 
-        <a href="#">HEMEN SİPARİŞ VER</a>
+        İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda. <a href="#">HEMEN SİPARİŞ VER</a>
     </div>
 
     <header>
         <a href="index.html" class="logo">COMPASS.</a>
-        
         <nav class="nav-links">
             <a href="index.html">ANA SAYFA</a>
-            <a href="icindekiler.html" style="color: var(--dergi-kirmizi); font-weight: 800; border-bottom: 2px solid var(--dergi-kirmizi); padding-bottom: 2px;">ŞİİRLER</a>
-            <a href="didemvari.html">DİDEMVARİ</a>
-            <a href="hakkinda.html">KİM BU YAĞMUR</a>
-            <a href="iletisim.html">SES VER</a>
+            <a href="siirler.html" style="color: var(--dergi-kirmizi); font-weight: 800; border-bottom: 2px solid var(--dergi-kirmizi);">ŞİİRLER</a>
+            <a href="didemvari.html">DİDEMVARİ ŞEYLER</a>
+            <a href="kim-bu-yagmur.html">KİM BU YAĞMUR</a>
+            <a href="ses-ver.html">SES VER</a>
         </nav>
     </header>
 
     <div class="archive-header">
         <h1 class="archive-title">Şiir Arşivi</h1>
-        <span class="archive-subtitle">İÇİMDEKİLER VE DÖKÜLENLER</span>
+        <span style="color: var(--dergi-kirmizi); font-weight: 800; letter-spacing: 4px; font-size: 0.8rem;">2006 — 2026</span>
     </div>
 
     <main class="poems-feed">
@@ -146,23 +118,170 @@
         <article class="poem-item">
             <h2 class="poem-title">ON BİR TEMMUZ</h2>
             <span class="poem-context">(bu şiir birçok kez yazıldı, birçok kez silindi)</span>
-            <div class="poem-body">"O günden sonra
-            ayrılığın yeni adını “On Bir Temmuz” koydum.
-            Ve bazı sabahlar hâlâ on dört yaşıma uyanıyorum,
-            Yalınayak iniyorum merdivenleri."</div>
+            <div class="poem-body">"O günden sonra ayrılığın yeni adını “On Bir Temmuz” koydum. Ve bazı sabahlar hâlâ on dört yaşıma uyanıyorum, Yalınayak iniyorum merdivenleri."</div>
+            <div class="divider">***</div>
         </article>
-
-        <div class="poem-divider">* * *</div>
 
         <article class="poem-item">
             <h2 class="poem-title">DUT AĞACI</h2>
             <span class="poem-context">(bu şiir, dut ağacının altında yazıldı)</span>
-            <div class="poem-body">"Kardeşiz," diyorum o çocuklarla!
-            Doğup da bırakılmadım mı gölgesiz ağaç altına?
-            Yoğrulmadım mı dut karası acılarla?
-            Koşuyoruz çocuklarla ağaca.
-            Hayır, dutlar duracak dalında, biz kopacağız.
-            O an anlıyorum; Kardeş değiliz işte o çocuklarla!
-            Ah çocuklar… Ruhumun duvarlarındaki sarmaşıklar…
-            Ben ise solmaya yüz tutmuş çiçeksi düşlerin başrolü.</div>
+            <div class="poem-body">"Kardeşiz," diyorum o çocuklarla! Doğup da bırakılmadım mı gölgesiz ağaç altına? Yoğrulmadım mı dut karası acılarla? Koşuyoruz çocuklarla ağaca. Hayır, dutlar duracak dalında, biz kopacağız. O an anlıyorum; Kardeş değiliz işte o çocuklarla! Ah çocuklar… Ruhumun duvarlarındaki sarmaşıklar… Ben ise solmaya yüz tutmuş çiçeksi düşlerin başrolü.</div>
+            <div class="divider">***</div>
         </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">NEREDEN BİLSİNLER</h2>
+            <span class="poem-context">(bu şiir, çamaşır ipine asılan içli bir gömleğin cebinden sarktı)</span>
+            <div class="poem-body">"Bilmezler ki ben her şeyi sen zannettim: Bakkaldan gelen poşeti, komşunun çocuğunun ağlamasını, hatta geçenlerde kırılan fincanın sesini bile."</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">ÜZERİMDE UMUT KALMADI</h2>
+            <span class="poem-context">(bu şiir, annemin asmadığı çamaşır iplerinden sarkıyor)</span>
+            <div class="poem-body">"Ben bu ömrü, çocukken altı çizilmemiş bir ödev gibi eksik ve yarım bıraktım. “Ömür dediğin, koca bir kalp ağrısı işte Çiğdem.”</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">ANNEME SÖYLEMEDİM BU ŞİİRİ</h2>
+            <span class="poem-context">(bu şiiri, annem şiir yazmamı yasakladıktan sonra yazdım)</span>
+            <div class="poem-body">Sonra annem çağırıyor balkondan: “Yeter bu kadar edebiyat, gel de iki yumurta kır.” Kırıyorum... Ama sarısı hep sana akıyor şiirin.</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">GICIRTISIYLA YAŞAYAN BİSİKLET</h2>
+            <span class="poem-context">(bu şiir, kimsenin binmediği paslı bir bisikletin selesine kazındı)</span>
+            <div class="poem-body">"Ah benim, saklambaçların sonuna varamadan sobelenen çocukluğum… Bir bisiklet gibi kaldın köşesinde sokağın. Kimsenin binmediği ama hâlâ gıcırtısıyla yaşayan."</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">ALLAH BOZMASIN KIZIM</h2>
+            <span class="poem-context">(bu şiir Makbuş Teyze’nin sandalyesinin dibinde yazıldı)</span>
+            <div class="poem-body">"Bir küfre başlıyorum mesela, senin sesin gelince sonunu “canım”la kıvırıyorum. Senin “günaydın”ın var ya… Çocukluğumun avlusuna düşen bir top gibi sevinçle sekip duruyor içimde. Dilimin ucundaki hırçınlık yere oturup süt içmek istiyor sanki. Eskiden sabahlar bile iştahsız geçerdi. Hayat, boğazımdan geçmeyen sert bir lokma gibiydi. Sonra işte; iki zeytin, bir ekmekle şair kesilmeye başladım."
+            "“Ne zaman gözlerin gözlerime değse, öfkemin dili kekeliyor işte.”"</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">BENEKLİ KELEBEK</h2>
+            <span class="poem-context">(bu şiir, benekli bir kelebeğin kanatlarındaydı)</span>
+            <div class="poem-body">"Sonrasında ilahi şeylere inandırırdım kendimi, bana bir günlük ömür biçmiş Tanrı’ya biraz da sitem ederdim. Oysa çektiğim acılar bir günlüktü ve ben bilmezdim acıdan öldüğümü.“Bilmezdim; dört tarafı sızıyla çevrili bir dünyada, Tanrı’nın, ölümü bir armağanmışçasına kanadıma kondurduğunu.”</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">TEK AYAĞI TOPAL BİR UMUT</h2>
+            <span class="poem-context">(bu şiir, buruşuk bir özlemin dilinden döküldü)</span>
+            <div class="poem-body">“Tıpkı bir köşede unutulmuş paslı bir bıçak gibi, keskin ama körelmiş bir acıyı saklıyorum içimde.”</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">ZAMANIN ÖTESİNDEKİ ÜÇ YIL</h2>
+            <span class="poem-context">(bu şiir, tahta silgisine yapışan tebeşir tozuyla yazıldı)</span>
+            <div class="poem-body">"Belki de beni unutturacak, bir bayram sabahı kapıyı çalan güzel gözlü çocuklar. Ama iyisi mi siz bilin; bir kanat ki sığındığım, karlar konmaz kirpiklerime!" İstanbul / 2024 Pusulama...</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">ESKİ SAATİN KADRANI</h2>
+            <span class="poem-context">(bu şiir, dedemin kol saatinden düşen saniyeydi)</span>
+            <div class="poem-body">"Anılar paslandı artık Çiğdem’im. Eski bir saatin kadranına koyup, her dakikasına seni sığdırıyorum. İşte sen de her gece aklıma sığınıyorsun. Kelimeler çiçek açıyor içimde. Ah benim içimde şuursuzca oturan heybetli sensizlik…"</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">SANCILI BÜTÜNLÜK</h2>
+            <span class="poem-context">(bu şiir, apartman boşluğunda yankılandı önce, sonra kelimeye döküldü)</span>
+            <div class="poem-body">"Seni sevmek; içimde hiç doğmamış bir çocuğun ilk çığlığı gibi bir şey. Ne vakti gelmiş ne düşmüş kundağa. Sen, içimde kabaran bir doğum sancısısın. Hiç geçmeyecek ama hep umut verecek bir acı."</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">ATEŞ BÖCEĞİ</h2>
+            <span class="poem-context">(bu şiir, bir mahalle düğününde konfetilerle karıştı)</span>
+            <div class="poem-body">"Diz kapaklarındaki yarayı sevdim yere düşen her çocuğun. Kıyıya vurmuş bütün hislerin üstünü örttüm. Anlayacağın; sırılsıklam olan bir paltodan bile daha ağır duygularım."</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">KİRAZLA“Ş”MIŞ HÜZÜN</h2>
+            <span class="poem-context">(bu şiir, kibrit kutusuna saklanan uğur böceklerinin ahıyla yazıldı)</span>
+            <div class="poem-body">"Ah benim kirazlaşmış hüznüm, kiraz lekeli çocukluğum. Kirazlarla ağırlanmış, lekesiyle uğurlanmış çocuk yanım."</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">SEN SAKIN ALDIRMA</h2>
+            <span class="poem-context">(bu şiir, mavi gözlü bir çocuğun bayram sabahı dudağından döküldü)</span>
+            <div class="poem-body">"Belki de gitmek gerekir bazen; Bir şehirden, bir hayattan, bir şiirden. Sen sakın aldırma!"</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">VAGON</h2>
+            <span class="poem-context">(bu şiir, bekçinin “kimi bekliyorsun abla?” demediği o gece yazıldı)</span>
+            <div class="poem-body">"Sonra bir tren sesi duydum uzaklara giden. İkinci vagonun camında gördüğüm saçlarındı beni hayata küstüren."</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">BENİ EN SON UNUTTUĞUN YERDEN AL</h2>
+            <span class="poem-context">(bu şiir, bir otogarda düşen fişin arkasına yazıldı)</span>
+            <div class="poem-body">"Her gittiğim yerde biraz daha küfür büyütüyorum dudaklarımda. Beni bir yerde unutmuş gibi susuyor Tanrı bazen."</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">YOLCULUK</h2>
+            <span class="poem-context">(bu şiir, bir biletin arkasına karalanmıştı)</span>
+            <div class="poem-body">"Gözüm yolda, aklım onda… Üzgün olacağım dünden belliydi dünyaya."</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">SİRİUS</h2>
+            <span class="poem-context">(bu şiir, ne bir varış ne de bir gidiş; sadece kalmak için yazıldı)</span>
+            <div class="poem-body">"Çiçekli değil, çığlıkla karışık çiğdemli dualar dökülecek avuçlarımdan. (Çiğdem: Her bahar çıkacağına söz verip çıkmayan umut. Mahallemizin en güvenilmez vaadi.)"</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">BALSA AĞACI</h2>
+            <span class="poem-context">(bu şiir, balsa ağaçlarının rüzgârda çıtırdayan dallarından çıktı)</span>
+            <div class="poem-body">"bütün bunlar balsa ağacının ah’ı kesin!"</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">GÖÇEBE</h2>
+            <span class="poem-context">(bu şiir, çatının kenarında unutulmuş bir leylek yuvasından düştü)</span>
+            <div class="poem-body">"Aklım kalır belki… Çamaşır ipinde unuttuğum bebek elbiselerinde ve “anne” diye diye uyuyakaldığım tüm gecelerde."</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">GEÇMİŞİN ACISINI SARIP YENİYİ DOĞURMAK</h2>
+            <span class="poem-context">(bu şiir, geçmişin yaralarını sararken geleceğin rengini yeniden bulma arzusuyla yazıldı)</span>
+            <div class="poem-body">“İnsanlık kaybolduğu yeri bulmalı ve tüm geçmişin acısını sarıp yenisini doğurmalı.”</div>
+            <div class="divider">***</div>
+        </article>
+
+        <article class="poem-item">
+            <h2 class="poem-title">GEÇMİŞE DÖNDÜM YÜZÜMÜ</h2>
+            <span class="poem-context">(bu şiir, eski bir defterin sararmış sayfalarına yazıldı)</span>
+            <div class="poem-body">"Geride bıraktım geçmemiş geçmişi ve dedim ki: “Hâlsizliğimi mazur gör, sensizliğimdendir.”"</div>
+        </article>
+
+    </main>
+
+    <footer>
+        <div class="footer-logo">COMPASS.</div>
+        <div class="footer-text">© 2006 YAĞMUR GÜMÜŞ. TÜM HAKLARI KELİMELERE SAKLIDIR.</div>
+    </footer>
+
+</body>
+</html>
