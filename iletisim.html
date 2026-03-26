@@ -2,184 +2,67 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ses Ver | COMPASS.</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Playfair+Display:ital,wght@0,900;1,400&display=swap" rel="stylesheet">
     <style>
-        /* ANA SAYFAYLA AYNI MİMARİ */
-        :root {
-            --dergi-kirmizi: #c8102e;
-            --dergi-siyah: #111111;
-            --dergi-koyu-gri: #333333;
-            --dergi-acik-gri: #f4f4f4;
-            --dergi-beyaz: #fcfcfc;
-        }
-
+        :root { --kirmizi: #c8102e; --siyah: #111; --gri: #fcfcfc; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--gri); color: var(--siyah); line-height: 1.6; }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dergi-beyaz);
-            color: var(--dergi-siyah);
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
+        header { border-bottom: 2px solid var(--siyah); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; text-decoration: none; color: var(--siyah); }
+        .nav-links a { text-decoration: none; color: #555; margin-left: 20px; font-size: 0.8rem; font-weight: 800; }
 
-        /* ÜST BANT VE MENÜ */
-        .top-bar { background-color: var(--dergi-kirmizi); color: #fff; text-align: center; padding: 10px 15px; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-        .top-bar a { color: #fff; text-decoration: underline; margin-left: 10px; font-weight: 800; }
-
-        header { border-bottom: 2px solid var(--dergi-siyah); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: var(--dergi-beyaz); position: sticky; top: 0; z-index: 100; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--dergi-siyah); text-decoration: none; letter-spacing: -1px; }
-        .nav-links { display: flex; gap: 25px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--dergi-koyu-gri); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--dergi-kirmizi); }
-
-        /* İLETİŞİM (SES VER) KISMI */
-        .contact-container {
-            max-width: 600px;
-            margin: 80px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
+        .contact-wrap { max-width: 700px; margin: 100px auto; padding: 0 20px; text-align: left; }
         
-        .contact-subtitle {
-            font-size: 0.8rem;
-            color: var(--dergi-kirmizi);
-            font-weight: 800;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-            display: block;
-            text-transform: uppercase;
-        }
+        .shout { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; line-height: 0.9; margin-bottom: 40px; letter-spacing: -2px; }
         
-        .contact-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            font-weight: 900;
-            color: var(--dergi-siyah);
-            margin-bottom: 30px;
-            letter-spacing: -1px;
-        }
+        .manifesto { font-size: 1.2rem; color: #444; margin-bottom: 60px; border-left: 5px solid var(--kirmizi); padding-left: 30px; font-style: italic; }
 
-        .contact-desc {
-            font-size: 1.15rem;
-            color: var(--dergi-koyu-gri);
-            margin-bottom: 50px;
-            line-height: 1.6;
-            font-style: italic;
-            font-family: 'Playfair Display', serif;
-        }
+        .links-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .link-item { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--siyah); border-bottom: 1px solid #ddd; padding: 15px 0; transition: 0.3s; display: flex; justify-content: space-between; }
+        .link-item:hover { color: var(--kirmizi); border-bottom-color: var(--kirmizi); padding-left: 10px; }
+        .link-item span { font-size: 0.7rem; color: #999; letter-spacing: 2px; align-self: center; }
 
-        /* İLETİŞİM BAĞLANTILARI (BUTONLARI) */
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
+        footer { margin-top: 100px; padding: 40px; text-align: center; font-size: 0.7rem; letter-spacing: 2px; color: #888; border-top: 1px solid #eee; }
 
-        .contact-btn {
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            color: var(--dergi-siyah);
-            text-decoration: none;
-            padding: 15px 40px;
-            border: 2px solid var(--dergi-siyah);
-            transition: all 0.3s ease;
-            width: 100%;
-            max-width: 300px;
-            text-transform: uppercase;
-        }
-
-        .contact-btn:hover {
-            background-color: var(--dergi-siyah);
-            color: var(--dergi-beyaz);
-            border-color: var(--dergi-siyah);
-        }
-
-        .contact-btn.mail-btn {
-            border-color: var(--dergi-kirmizi);
-            color: var(--dergi-kirmizi);
-        }
-
-        .contact-btn.mail-btn:hover {
-            background-color: var(--dergi-kirmizi);
-            color: var(--dergi-beyaz);
-        }
-
-        .address-box {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #ddd;
-            font-size: 0.8rem;
-            color: #888;
-            letter-spacing: 2px;
-            line-height: 2;
-        }
-
-        /* FOOTER */
-        footer { background-color: var(--dergi-siyah); color: var(--dergi-beyaz); text-align: center; padding: 60px 20px; margin-top: 40px; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
-        .footer-text { font-size: 0.75rem; color: #888; letter-spacing: 2px; }
-
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 20px; padding: 20px; position: relative; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
-        }
+        @media (max-width: 768px) { .contact-wrap { margin: 50px auto; } .shout { font-size: 4rem; } }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda. 
-        <a href="#">HEMEN SİPARİŞ VER</a>
-    </div>
-
     <header>
         <a href="index.html" class="logo">COMPASS.</a>
-        
         <nav class="nav-links">
             <a href="index.html">ANA SAYFA</a>
-            <a href="icindekiler.html">ŞİİRLER</a>
+            <a href="siirler.html">ŞİİRLER</a>
             <a href="didemvari.html">DİDEMVARİ</a>
-            <a href="hakkinda.html">KİM BU YAĞMUR</a>
-            <a href="iletisim.html" style="color: var(--dergi-kirmizi); font-weight: 800; border-bottom: 2px solid var(--dergi-kirmizi); padding-bottom: 2px;">SES VER</a>
+            <a href="kim-bu-yagmur.html">KİM BU YAĞMUR</a>
+            <a href="iletisim.html" style="color: var(--kirmizi);">SES VER</a>
         </nav>
     </header>
 
-    <main class="contact-container">
-        <span class="contact-subtitle">İLETİŞİM / İSTİHBARAT</span>
-        <h1 class="contact-title">SES VER</h1>
+    <main class="contact-wrap">
+        <h1 class="shout">SES<br>VER.</h1>
         
-        <div class="contact-desc">
-            " Çekinme, ses ver."
+        <div class="manifesto">
+            "Kusura bakma, burada kurumsal bir form yok. Dilekçe almıyoruz. 
+            Eğer bir kelimen varsa fırlat; ya gözüme değer ya gönlüme. 
+            İstediğin yerden yaz, nasıl olsa bir gün unutulacağız."
         </div>
 
-        <div class="contact-links">
-            <a href="gumusy958@gmail.com" class="contact-btn mail-btn">E-POSTA GÖNDER</a>
-            
-            <a href="https://instagram.com/ygmurgms" target="_blank" class="contact-btn">INSTAGRAM</a>
-            <a href="https://x.com/ygmurgms" target="_blank" class="contact-btn">X (X)</a>
-        </div>
+        <nav class="links-grid">
+            <a href="gumusy958@gmail.com" class="link-item">E-POSTA <span>/ ACİL DURUMLAR</span></a>
+            <a href="https://instagram.com/ygmurgms" class="link-item">INSTAGRAM <span>/ GÖRSEL HAFIZA</span></a>
+            <a href="https://x.com/ygmurgms" class="link-item">X <span>/ GÜRÜLTÜ KİRLİLİĞİ</span></a>
+        </nav>
 
-        <div class="address-box">
-            MERKEZ LOKASYON: İZMİR, TR<br>
-            41°01'N 29°01'E — 38°25'N 27°08'E
-        </div>
+        <p style="margin-top: 40px; font-size: 0.8rem; font-weight: 800; color: var(--kirmizi);">İZMİR / 38°25'N 27°08'E</p>
     </main>
 
     <footer>
-        <div class="footer-logo">COMPASS.</div>
-        <div class="footer-text" style="margin-bottom: 10px;">41°01'N 29°01'E — 38°25'N 27°08'E</div>
-        <div class="footer-text">© 2006 YAĞMUR GÜMÜŞ. TÜM HAKLARI KELİMELERE SAKLIDIR.</div>
+        © 2006 YAĞMUR GÜMÜŞ. TÜM HAKLARI KELİMELERE SAKLIDIR.
     </footer>
 
 </body>
