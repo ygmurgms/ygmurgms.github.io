@@ -1,165 +1,272 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COMPASS. | Yağmur Gümüş</title>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0d0d0d',
+                            paper: '#fcfbf7',
+                            soft: '#f3f1e9',
+                            muted: '#666666',
+                            border: '#e5e3d7'
+                        }
+                    },
+                    fontFamily: {
+                        title: ['Cinzel', 'serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --dergi-kirmizi: #c8102e;
-            --dergi-siyah: #111111;
-            --dergi-koyu-gri: #333333;
-            --dergi-acik-gri: #f4f4f4;
-            --dergi-beyaz: #fcfcfc;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dergi-beyaz);
-            color: var(--dergi-siyah);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* SİPARİŞ BANDI */
-        .top-bar {
-            background-color: var(--dergi-kirmizi);
-            color: #fff;
-            text-align: center;
-            padding: 10px 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .top-bar a { color: #fff; text-decoration: underline; margin-left: 10px; font-weight: 800; }
-
-        /* NAV */
-        header {
-            border-bottom: 2px solid var(--dergi-siyah);
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--dergi-beyaz);
-        }
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--dergi-siyah);
-            text-decoration: none;
-            letter-spacing: -1px;
-        }
-        .nav-links { display: flex; gap: 25px; align-items: center; }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dergi-koyu-gri);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        .nav-links a:hover { color: var(--dergi-kirmizi); }
-
-        /* HERO */
-        .hero { padding: 80px 5%; text-align: center; border-bottom: 1px solid #ddd; }
-        .hero-date { font-size: 0.8rem; color: var(--dergi-kirmizi); font-weight: 800; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; }
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3.5rem, 10vw, 8rem); 
-            font-weight: 900;
-            line-height: 1;
-            letter-spacing: -2px;
-            margin-bottom: 30px;
-        }
-        .hero-author { font-size: 1.2rem; font-weight: 600; letter-spacing: 5px; color: var(--dergi-koyu-gri); }
-
-        /* GRID */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            padding: 60px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .article-card { border-top: 3px solid var(--dergi-kirmizi); padding-top: 20px; }
-        .article-category { font-size: 0.7rem; color: var(--dergi-kirmizi); font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; display: block; }
-        .article-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; }
-        .article-excerpt { font-size: 0.95rem; color: var(--dergi-koyu-gri); margin-bottom: 20px; }
-        .read-more { font-size: 0.8rem; font-weight: 800; color: var(--dergi-siyah); text-decoration: none; border-bottom: 2px solid var(--dergi-kirmizi); padding-bottom: 3px; }
-
-        footer { background-color: var(--dergi-siyah); color: var(--dergi-beyaz); text-align: center; padding: 60px 20px; margin-top: 40px; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
-        .footer-text { font-size: 0.75rem; color: #888; letter-spacing: 2px; }
-
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 20px; padding: 20px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            background-color: #fcfbf7;
+            color: #0d0d0d;
         }
     </style>
 </head>
-<body>
+<body class="font-sans antialiased selection:bg-black selection:text-white">
 
-    <div class="top-bar">
-        İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda. 
-        <a href="#">HEMEN SİPARİŞ VER</a>
+    <!-- Top Announcement Bar -->
+    <div class="bg-black text-white text-xs py-2.5 px-4 text-center font-sans tracking-widest uppercase flex items-center justify-center gap-2 border-b border-black">
+        <span>İlk Şiir Kitabım "Unutulmanın Mahalledeki Tadı" Raflarda.</span>
+        <a href="#siirler" class="underline font-bold hover:text-gray-300 transition">HEMEN SİPARİŞ VER &rarr;</a>
     </div>
 
-    <header>
-        <a href="index.html" class="logo">COMPASS.</a>
-        <nav class="nav-links">
-            <a href="index.html" style="color: var(--dergi-kirmizi); font-weight: 800; border-bottom: 2px solid var(--dergi-kirmizi);">ANA SAYFA</a>
-            <a href="siirler.html">ŞİİRLER</a>
-            <a href="didemvari.html">DİDEMVARİ ŞEYLER</a>
-            <a href="kim-bu-yagmur.html">KİM BU YAĞMUR</a>
-            <a href="ses-ver.html">SES VER</a>
-        </nav>
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 border-b border-brand-border bg-brand-paper/95 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-title text-2xl font-black tracking-widest text-black">
+                COMPASS<span class="text-black">.</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8 font-sans text-xs uppercase tracking-widest font-semibold text-black">
+                <a href="#" class="hover:opacity-50 transition">ANA SAYFA</a>
+                <a href="#siirler" class="hover:opacity-50 transition">ŞİİRLER</a>
+                <a href="#didemvari" class="hover:opacity-50 transition">DİDEMVARI ŞEYLER</a>
+                <a href="#kim-bu-yagmur" class="hover:opacity-50 transition">KİM BU YAĞMUR</a>
+                <a href="#ses-ver" class="hover:opacity-50 transition">SES VER</a>
+            </div>
+
+            <a href="#ses-ver" class="bg-black text-white px-5 py-2 text-xs font-sans font-bold tracking-widest uppercase rounded-full hover:bg-gray-800 transition">
+                İLETİŞİM
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-20 md:py-32 px-6 border-b border-brand-border">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <div class="font-sans text-xs tracking-widest uppercase text-brand-muted">TEMMUZ - 2026</div>
+            <h1 class="font-title text-5xl md:text-7xl font-black tracking-widest text-black">
+                COMPASS<span class="text-black">.</span>
+            </h1>
+            <div class="font-serif text-2xl md:text-3xl italic text-black/80 max-w-2xl mx-auto leading-relaxed">
+                “Sevgili anneciğim, binlerce kez açıldım, binlerce kez kapandım yokluğunda.”
+            </div>
+            <p class="font-sans text-xs tracking-widest uppercase text-black/60">— DİDEM MADAK</p>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-date">TEMMUZ-2019</div>
-        <h1 class="hero-title">COMPASS.</h1>
-        <div class="hero-author">YAĞMUR GÜMÜŞ</div>
-        
-        <div style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            <blockquote style="font-family:'Playfair Display', serif; font-style:italic; font-size: 1.4rem; color: var(--dergi-koyu-gri);">
-                “Sevgili anneciğim, binlerce kez açıldım, binlerce kez kapandım yokluğunda."
-            </blockquote>
-            <cite style="display:block; margin-top:15px; color:var(--dergi-kirmizi); font-weight:800; font-size: 0.8rem; letter-spacing: 2px;">— DİDEM MADAK</cite>
+    <!-- Featured Poems / Şiirler -->
+    <section id="siirler" class="py-24 px-6 border-b border-brand-border">
+        <div class="max-w-5xl mx-auto space-y-20">
+            
+            <div class="flex items-center justify-between border-b border-black pb-4">
+                <h2 class="font-title text-xl font-bold tracking-widest">ŞİİRLER & ANLATILAR</h2>
+                <span class="font-sans text-xs text-brand-muted tracking-widest uppercase">SEÇKİ #01</span>
+            </div>
+
+            <!-- Poem 1 -->
+            <article class="grid md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-4">
+                    <span class="font-sans text-xs text-brand-muted tracking-widest uppercase block mb-2">BAYRAK ESER</span>
+                    <h3 class="font-serif text-3xl font-bold leading-tight">SARILINCA GEÇER SOKAĞI</h3>
+                </div>
+                <div class="md:col-span-8 space-y-6 font-serif text-base text-black/80 leading-relaxed pl-0 md:pl-8 border-l-0 md:border-l border-brand-border">
+                    <p class="italic">
+                        "Ve belki bir gün, 'Sarılınca Geçer Sokağı'nda karşılaşırsak, ben yine çocuk hâlimle geleceğim karşına. Ama bu defa üşüdüğümü söylemeyeceğim. 'Sessizlik, senin bana verdiğin en soğuk hediyeydi.' Ve ben, teşekkür edemediğim her an için bir sokak kedisinin gözlerini öptüm."
+                    </p>
+                    <div class="pt-4 flex flex-wrap items-center gap-4">
+                        <button onclick="alert('Ön sipariş kaydınız alındı! Sizinle en kısa sürede iletişime geçeceğiz.');" class="bg-black text-white px-6 py-3 text-xs font-sans font-bold uppercase tracking-widest rounded-full hover:bg-gray-800 transition">
+                            Koleksiyon Kitabını Ön Sipariş Et
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Poem 2 -->
+            <article class="grid md:grid-cols-12 gap-8 items-start pt-12 border-t border-brand-border">
+                <div class="md:col-span-4">
+                    <span class="font-sans text-xs text-brand-muted tracking-widest uppercase block mb-2">ŞİİRLERDEN</span>
+                    <h3 class="font-serif text-3xl font-bold leading-tight">BİR AVUÇ TOPRAK</h3>
+                </div>
+                <div class="md:col-span-8 space-y-4 font-serif text-base text-black/80 leading-relaxed pl-0 md:pl-8 border-l-0 md:border-l border-brand-border">
+                    <p class="italic">
+                        "Bizim inancımızda, bir karıncanın ahı arş-ı âlâyı titretirdi çocuk... Anneannem 'Hiç' olmayı öğretirdi bize. Bana 'Nevruzum' derdi, yüzümü o çatlak avuçlarının arasına alıp: 'Nevruzum... Nihayetinde bir avuç topraksın, sakın ola kibirlenme.' Bir avuç toprak... Alt tarafı bir avuç toprak."
+                    </p>
+                </div>
+            </article>
+
         </div>
     </section>
 
-    <section class="content-grid">
-        <article class="article-card">
-            <h2 class="article-title">SARILINCA GEÇER SOKAĞI</h2>
-            <p class="article-excerpt">Ve belki bir gün, “Sarılınca Geçer Sokağı”nda karşılaşırsak, ben yine çocuk hâlimle geleceğim karşına. Ama bu defa üşüdüğümü söylemeyeceğim. “Sessizlik, senin bana verdiğin en soğuk hediyeydi.” Ve ben, teşekkür edemediğim her an için bir sokak kedisinin gözlerini öptüm.</p>
-        </article>
-        <article class="article-card">
-            <h2 class="article-title">BİR AVUÇ TOPRAK</h2>
-            <p class="article-excerpt">
-Bizim inancımızda,
-bir karıncanın ahı arş-ı âlâyı titretirdi çocuk.
-            ...
-Anneannem “Hiç" olmayı öğretirdi bize.
-Bana "Nevruzum" derdi, yüzümü o çatlak avuçlarının arasına alıp.
-“Nevruzum... Nihayetinde bir avuç topraksın, sakın ola kibirlenme."
-...
-Bir avuç toprak...
-Alt tarafı bir avuç toprak.</p>
-        </article>
+    <!-- Didemvari Şeyler (Mahalle Lügatçesi) -->
+    <section id="didemvari" class="py-24 px-6 bg-brand-soft border-b border-brand-border">
+        <div class="max-w-5xl mx-auto space-y-16">
+            
+            <div class="text-center max-w-xl mx-auto space-y-3">
+                <h2 class="font-title text-2xl font-bold tracking-widest">DİDEMVARİ ŞEYLER</h2>
+                <p class="font-serif text-sm text-brand-muted italic">"Acının dili yoktu ama harfleri vardı. Mahalle Lügatçesi."</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-brand-paper p-8 border border-brand-border rounded-xl space-y-3 hover:border-black transition">
+                    <span class="font-sans text-xs text-brand-muted uppercase tracking-widest">LÜGATÇE #01</span>
+                    <h3 class="font-serif text-xl font-bold">ANNE</h3>
+                    <p class="font-serif text-sm italic text-black/70 leading-relaxed">
+                        "Boğazda kalan pas. İçinde geçtiği bütün kelimeleri yanına alan, mahallemizde yıkılmadık ev bırakmayan o kelime."
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-brand-paper p-8 border border-brand-border rounded-xl space-y-3 hover:border-black transition">
+                    <span class="font-sans text-xs text-brand-muted uppercase tracking-widest">LÜGATÇE #02</span>
+                    <h3 class="font-serif text-xl font-bold">ÇİĞDEM</h3>
+                    <p class="font-serif text-sm italic text-black/70 leading-relaxed">
+                        "Her bahar çıkacağına söz verip çıkmayan umut. Mahallemizin en güvenilmez vaadi."
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-brand-paper p-8 border border-brand-border rounded-xl space-y-3 hover:border-black transition">
+                    <span class="font-sans text-xs text-brand-muted uppercase tracking-widest">LÜGATÇE #03</span>
+                    <h3 class="font-serif text-xl font-bold">KUL HAKKI</h3>
+                    <p class="font-serif text-sm italic text-black/70 leading-relaxed">
+                        "Bir ruhu evcilleştirip sonra terk etmenin ilahi kanundaki karşılığı."
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-brand-paper p-8 border border-brand-border rounded-xl space-y-3 hover:border-black transition">
+                    <span class="font-sans text-xs text-brand-muted uppercase tracking-widest">LÜGATÇE #04</span>
+                    <h3 class="font-serif text-xl font-bold">BÖCEKLER</h3>
+                    <p class="font-serif text-sm italic text-black/70 leading-relaxed">
+                        "Bizim bir türlü icat edemediğimiz o mutlak adalet duygusuna sahip demokrat gurmeler."
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-brand-paper p-8 border border-brand-border rounded-xl space-y-3 hover:border-black transition">
+                    <span class="font-sans text-xs text-brand-muted uppercase tracking-widest">LÜGATÇE #05</span>
+                    <h3 class="font-serif text-xl font-bold">ON BİR TEMMUZ</h3>
+                    <p class="font-serif text-sm italic text-black/70 leading-relaxed">
+                        "Milat. Ayrılığın yeni adı. Çamaşır asılmayan, bacaların kara tüttüğü o ilk gün."
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-brand-paper p-8 border border-brand-border rounded-xl space-y-3 hover:border-black transition">
+                    <span class="font-sans text-xs text-brand-muted uppercase tracking-widest">LÜGATÇE #06</span>
+                    <h3 class="font-serif text-xl font-bold">BÜYÜMEK</h3>
+                    <p class="font-serif text-sm italic text-black/70 leading-relaxed">
+                        "Palavra. Siz ütülü pantolon gibi dolaşmak sandınız büyümeyi..."
+                    </p>
+                </div>
+            </div>
+
+        </div>
     </section>
 
-    <footer>
-        <div class="footer-logo">COMPASS.</div>
-        <div class="footer-text">© 2006 YAĞMUR GÜMÜŞ. TÜM HAKLARI KELİMELERE SAKLIDIR.</div>
+    <!-- Kim Bu Yağmur (Yazar Hakkında) -->
+    <section id="kim-bu-yagmur" class="py-24 px-6 border-b border-brand-border">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-5">
+                <div class="border border-black p-2 bg-white rounded-xl shadow-lg">
+                    <img src="https://ygmurgms.github.io/images/yagmur.jpg" onerror="this.src='https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80'" alt="Yağmur Gümüş" class="w-full aspect-square object-cover rounded-lg">
+                </div>
+            </div>
+            <div class="md:col-span-7 space-y-6">
+                <span class="font-sans text-xs text-brand-muted tracking-widest uppercase">YAZAR & EDİTÖR</span>
+                <h2 class="font-title text-3xl font-bold">KİM BU YAĞMUR?</h2>
+                <p class="font-serif text-sm text-black/80 leading-relaxed">
+                    2006 Üsküdar doğumlu. İzmir’in kenar mahallelerinde, çamaşır ipinde kuruyan çocukluğunun ardından kelimelerin içine sığınarak kendine yeni bir ev kurdu. Manisa Celal Bayar Üniversitesi Halkla İlişkiler eğitimi ve <i>Kor Dergi</i> Genel Yayın Yönetmenliği liderliğiyle, edebiyatı insan ilişkilerini ve kurumsal hafızayı iyileştiren bir pusula olarak konumlandırıyor.
+                </p>
+                <div class="font-sans text-xs font-bold uppercase tracking-widest text-black">
+                    Yayınlar: Unutulmanın Mahalledeki Tadı | Kor Dergi | Edebi Dergi
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ses Ver (İletişim, Bülten & Hizmetler) -->
+    <section id="ses-ver" class="py-24 px-6 bg-black text-white">
+        <div class="max-w-4xl mx-auto space-y-16 text-center">
+            
+            <div class="space-y-4">
+                <h2 class="font-title text-3xl md:text-4xl font-bold tracking-widest">SES VER</h2>
+                <p class="font-serif text-sm text-gray-400 italic max-w-md mx-auto">
+                    Haftalık edebi denemeler, sesli okumalar ve editoryal danışmanlık talepleri için ulaşın.
+                </p>
+            </div>
+
+            <!-- Services Overview -->
+            <div class="grid md:grid-cols-3 gap-6 text-left border-t border-b border-gray-800 py-12">
+                <div class="space-y-2">
+                    <span class="font-sans text-xs text-gray-500 uppercase tracking-widest">HİZMET #01</span>
+                    <h3 class="font-serif text-lg font-bold">Editoryal Okuma</h3>
+                    <p class="font-serif text-xs text-gray-400 leading-relaxed">
+                        Edebi kurgu, metin düzenleme ve dilbilgisel ahenk danışmanlığı.
+                    </p>
+                </div>
+                <div class="space-y-2">
+                    <span class="font-sans text-xs text-gray-500 uppercase tracking-widest">HİZMET #02</span>
+                    <h3 class="font-serif text-lg font-bold">Kitap & Mizampaj</h3>
+                    <p class="font-serif text-xs text-gray-400 leading-relaxed">
+                        Baskıya ve dijital yayıncılığa özel kapak ve sayfa tasarımı.
+                    </p>
+                </div>
+                <div class="space-y-2">
+                    <span class="font-sans text-xs text-gray-500 uppercase tracking-widest">HİZMET #03</span>
+                    <h3 class="font-serif text-lg font-bold">Küresel Dağıtım</h3>
+                    <p class="font-serif text-xs text-gray-400 leading-relaxed">
+                        Eserlerinizi Substack, Amazon KDP ve uluslararası ağlara taşıma.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Newsletter Form -->
+            <form onsubmit="alert('Sesiniz ulaştı! Teşekkür ederiz.'); return false;" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input type="email" placeholder="E-posta adresiniz" required class="bg-gray-900 border border-gray-700 text-white px-5 py-3.5 rounded-full text-xs font-sans focus:outline-none flex-1">
+                <button type="submit" class="bg-white text-black font-sans font-bold px-8 py-3.5 rounded-full text-xs uppercase tracking-widest hover:bg-gray-200 transition">
+                    Bültene Katıl
+                </button>
+            </form>
+
+            <div class="font-sans text-xs text-gray-500">
+                Doğrudan İletişim: <a href="mailto:gumusy958@gmail.com" class="underline text-gray-300">gumusy958@gmail.com</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-brand-border text-center font-sans text-xs text-brand-muted tracking-widest uppercase">
+        <div>COMPASS. © 2006 YAĞMUR GÜMÜŞ. TÜM HAKLARI KELİMELERE SAKLIDIR.</div>
     </footer>
 
 </body>
