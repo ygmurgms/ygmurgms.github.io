@@ -2,13 +2,17 @@
 <html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COMPASS. | Yağmur Gümüş — Numaralandırılmış Özel Edisyon (#001-#050)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>COMPASS. | Yağmur Gümüş — Edebiyat & Anlatı Üssü</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script>
         tailwind.config = {
             theme: {
@@ -35,54 +39,67 @@
         }
     </script>
     <style>
-        body {
+        html, body {
             background-color: #f9f7f1;
             color: #121110;
             background-image: radial-gradient(#e3ded1 0.75px, transparent 0.75px);
-            background-size: 20px 20px;
+            background-size: 16px 16px;
+            overflow-x: hidden;
+            width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
-        .book-wrapper { perspective: 1000px; }
+        
+        /* Responsive 3D Book Showcase Effect */
+        .book-wrapper { 
+            perspective: 1000px; 
+        }
         .book-container {
-            transform: rotateY(-20deg) rotateX(10deg);
+            transform: rotateY(-15deg) rotateX(8deg);
             transform-style: preserve-3d;
-            box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.25);
+            box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.2);
             transition: all 0.5s ease;
         }
-        .book-container:hover {
-            transform: rotateY(0deg) rotateX(0deg) scale(1.03);
-            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+        @media (max-width: 640px) {
+            .book-container {
+                transform: rotateY(0deg) rotateX(0deg);
+                box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+            }
         }
         .glass-panel {
-            background: rgba(249, 247, 241, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(227, 222, 209, 0.8);
+            background: rgba(249, 247, 241, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(227, 222, 209, 0.8);
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-editorial-crimson selection:text-white">
+<body class="font-sans antialiased selection:bg-editorial-crimson selection:text-white max-w-full">
 
     <!-- Top Announcement Bar -->
-    <div class="bg-editorial-ink text-editorial-bg text-xs py-2.5 px-4 font-mono tracking-widest uppercase flex items-center justify-between border-b border-editorial-ink z-50 relative">
-        <div class="max-w-6xl mx-auto w-full flex items-center justify-between">
-            <span class="hidden md:inline-flex items-center gap-2">
+    <div class="bg-editorial-ink text-editorial-bg text-[11px] sm:text-xs py-2.5 px-4 font-mono tracking-widest uppercase flex items-center justify-between border-b border-editorial-ink z-50 relative">
+        <div class="max-w-6xl mx-auto w-full flex items-center justify-between text-center sm:text-left">
+            <span class="hidden sm:inline-flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-editorial-crimson animate-pulse"></span>
                 TOPLAM 500 BASKI — İLK 50 ADET NUMARALANDIRILMIŞ CİLTLİ ÖZEL BASKI (#001 - #050)
             </span>
-            <div class="flex items-center gap-4 mx-auto md:mx-0">
-                <span>"Unutulmanın Mahalledeki Tadı"</span>
-                <a href="#book" class="bg-editorial-crimson text-white px-3 py-1 rounded font-bold hover:bg-white hover:text-editorial-ink transition">ÖN SİPARİŞ &rarr;</a>
+            <div class="flex items-center gap-2 sm:gap-4 mx-auto sm:mx-0">
+                <span class="truncate max-w-[200px] sm:max-w-none">"Unutulmanın Mahalledeki Tadı"</span>
+                <a href="#book" class="bg-editorial-crimson text-white px-2.5 py-1 rounded font-bold hover:bg-white hover:text-editorial-ink transition whitespace-nowrap text-[10px] sm:text-xs">ÖN SİPARİŞ &rarr;</a>
             </div>
         </div>
     </div>
 
     <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-40 glass-panel border-b border-editorial-border py-4">
-        <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-3 group">
-                <div class="w-9 h-9 rounded-full bg-editorial-ink text-editorial-bg flex items-center justify-center font-headline font-extrabold text-lg group-hover:bg-editorial-crimson transition">C</div>
-                <span class="font-headline text-2xl font-extrabold tracking-widest text-editorial-ink">COMPASS<span class="text-editorial-crimson">.</span></span>
+    <nav class="sticky top-0 z-40 glass-panel py-3.5 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2 sm:space-x-3 group">
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-editorial-ink text-editorial-bg flex items-center justify-center font-headline font-extrabold text-base sm:text-lg group-hover:bg-editorial-crimson transition">C</div>
+                <span class="font-headline text-xl sm:text-2xl font-extrabold tracking-widest text-editorial-ink">COMPASS<span class="text-editorial-crimson">.</span></span>
             </a>
-            <div class="hidden lg:flex items-center space-x-8 font-sans text-xs uppercase tracking-widest font-bold text-editorial-ink">
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden lg:flex items-center space-x-6 xl:space-x-8 font-sans text-xs uppercase tracking-widest font-bold text-editorial-ink">
                 <a href="#" class="hover:text-editorial-crimson transition">ANA SAYFA</a>
                 <a href="#book" class="hover:text-editorial-crimson transition">BAYRAK ESER</a>
                 <a href="#pricing" class="hover:text-editorial-crimson transition">MODÜLER FİYATLAR</a>
@@ -90,28 +107,48 @@
                 <a href="#about" class="hover:text-editorial-crimson transition">KİM BU YAĞMUR</a>
                 <a href="#services" class="hover:text-editorial-crimson transition">HİZMETLER</a>
             </div>
-            <a href="#contact" class="bg-editorial-ink text-editorial-bg px-6 py-2.5 text-xs font-sans font-bold tracking-widest uppercase rounded-full hover:bg-editorial-crimson transition border border-editorial-ink">SES VER</a>
+
+            <!-- Mobile Menu Button & Contact Button -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <a href="#contact" class="hidden sm:inline-block bg-editorial-ink text-editorial-bg px-5 py-2 text-xs font-sans font-bold tracking-widest uppercase rounded-full hover:bg-editorial-crimson transition border border-editorial-ink">SES VER</a>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden');" class="lg:hidden p-2 text-editorial-ink hover:text-editorial-crimson text-xl focus:outline-none" aria-label="Mobil Menü">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-editorial-bg border-t border-editorial-border mt-3 p-6 space-y-4 font-sans text-xs uppercase tracking-widest font-bold text-editorial-ink">
+            <a href="#" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 border-b border-editorial-border/60 hover:text-editorial-crimson">ANA SAYFA</a>
+            <a href="#book" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 border-b border-editorial-border/60 hover:text-editorial-crimson">BAYRAK ESER</a>
+            <a href="#pricing" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 border-b border-editorial-border/60 hover:text-editorial-crimson">MODÜLER FİYATLAR</a>
+            <a href="#dictionary" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 border-b border-editorial-border/60 hover:text-editorial-crimson">DİDEMVARI LÜGATÇE</a>
+            <a href="#about" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 border-b border-editorial-border/60 hover:text-editorial-crimson">KİM BU YAĞMUR</a>
+            <a href="#services" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 border-b border-editorial-border/60 hover:text-editorial-crimson">HİZMETLER</a>
+            <a href="#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden');" class="block py-2 text-editorial-crimson">SES VER & İLETİŞİM</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="py-20 lg:py-32 px-6 border-b border-editorial-border relative overflow-hidden">
-        <div class="max-w-5xl mx-auto text-center space-y-8 relative z-10">
-            <div class="inline-flex items-center gap-3 bg-editorial-card border border-editorial-border px-4 py-1.5 rounded-full text-xs font-mono font-semibold tracking-wider text-editorial-muted">
+    <header class="py-12 sm:py-20 lg:py-28 px-4 sm:px-6 border-b border-editorial-border relative overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10">
+            <div class="inline-flex items-center gap-2 sm:gap-3 bg-editorial-card border border-editorial-border px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-mono font-semibold tracking-wider text-editorial-muted">
                 <span>İZMİR /</span>
                 <span>•</span>
                 <span>500 ADET SINIRLI BASKI</span>
             </div>
-            <h1 class="font-headline text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-editorial-ink leading-none">COMPASS<span class="text-editorial-crimson">.</span></h1>
-            <div class="max-w-3xl mx-auto space-y-4">
-                <p class="font-serif text-2xl md:text-4xl italic font-normal text-editorial-ink/90 leading-snug">“Sevgili anneciğim, binlerce kez açıldım, binlerce kez kapandım yokluğunda.”</p>
-                <div class="font-sans text-xs tracking-widest uppercase font-bold text-editorial-crimson">— DİDEM MADAK</div>
+            <h1 class="font-headline text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-editorial-ink leading-none break-words">
+                COMPASS<span class="text-editorial-crimson">.</span>
+            </h1>
+            <div class="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+                <p class="font-serif text-xl sm:text-3xl md:text-4xl italic font-normal text-editorial-ink/90 leading-snug">“Sevgili anneciğim, binlerce kez açıldım, binlerce kez kapandım yokluğunda.”</p>
+                <div class="font-sans text-[10px] sm:text-xs tracking-widest uppercase font-bold text-editorial-crimson">— DİDEM MADAK</div>
             </div>
-            <p class="font-serif text-base md:text-lg text-editorial-muted max-w-2xl mx-auto leading-relaxed italic">
+            <p class="font-serif text-sm sm:text-base md:text-lg text-editorial-muted max-w-2xl mx-auto leading-relaxed italic px-2">
                 Geçici dijital gürültünün ortasında; çamaşır ipinde kuruyan çocukluğun, sokak lambalarının ve kelimelerden kurulan bir mahallenin kalıcı edebiyat üssü.
             </p>
-            <div class="pt-6 flex flex-wrap items-center justify-center gap-4">
-                <a href="#book" class="bg-editorial-ink text-editorial-bg px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-editorial-crimson transition shadow-lg flex items-center gap-2">
+            <div class="pt-4 sm:pt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-md mx-auto sm:max-w-none">
+                <a href="#book" class="w-full sm:w-auto bg-editorial-ink text-editorial-bg px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-editorial-crimson transition shadow-lg flex items-center justify-center gap-2">
                     <span>İlk 50 Özel Baskıyı İncele</span>
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
@@ -120,56 +157,56 @@
     </header>
 
     <!-- Book Section -->
-    <section id="book" class="py-24 px-6 border-b border-editorial-border bg-editorial-card/40">
+    <section id="book" class="py-16 sm:py-24 px-4 sm:px-6 border-b border-editorial-border bg-editorial-card/40">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="text-xs font-mono font-bold tracking-widest uppercase text-editorial-crimson">500 BASKILIK SINIRLI SÜRÜM</span>
-                <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-editorial-ink">Unutulmanın Mahalledeki Tadı</h2>
-                <p class="font-serif text-sm italic text-editorial-muted">"İlk 50 Adet: Numaralandırılmış, Ciltli, Mühürlü Lansman Kutusu (#001 - #050)"</p>
+            <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-2 sm:space-y-3">
+                <span class="text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase text-editorial-crimson">500 BASKILIK SINIRLI SÜRÜM</span>
+                <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-editorial-ink break-words">Unutulmanın Mahalledeki Tadı</h2>
+                <p class="font-serif text-xs sm:text-sm italic text-editorial-muted">"İlk 50 Adet: Numaralandırılmış, Ciltli, Mühürlü Lansman Kutusu (#001 - #050)"</p>
             </div>
 
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
                 <!-- 3D Book Graphic -->
-                <div class="lg:col-span-5 flex justify-center book-wrapper py-8">
-                    <div class="book-container w-72 h-[420px] bg-editorial-ink rounded-r-xl border-l-8 border-editorial-crimson p-8 flex flex-col justify-between text-editorial-bg font-serif relative">
+                <div class="lg:col-span-5 flex justify-center book-wrapper py-4 sm:py-8">
+                    <div class="book-container w-64 sm:w-72 h-[380px] sm:h-[420px] bg-editorial-ink rounded-r-xl border-l-8 border-editorial-crimson p-6 sm:p-8 flex flex-col justify-between text-editorial-bg font-serif relative">
                         <div class="space-y-2">
-                            <span class="text-[10px] font-mono tracking-widest uppercase text-editorial-amber block">NUMARALANDIRILMIŞ İLK 50 BASKI</span>
-                            <h3 class="font-serif text-2xl font-bold leading-tight">UNUTULMANIN MAHALLEDEKİ TADI</h3>
-                            <p class="text-xs italic text-editorial-bg/70 pt-2">Didem Madak'a ithafen...</p>
+                            <span class="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-editorial-amber block">NUMARALANDIRILMIŞ İLK 50 BASKI</span>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold leading-tight">UNUTULMANIN MAHALLEDEKİ TADI</h3>
+                            <p class="text-xs italic text-editorial-bg/70 pt-1 sm:pt-2"></p>
                         </div>
                         <div class="border-t border-editorial-bg/20 pt-4">
-                            <span class="text-xs font-mono uppercase tracking-widest text-editorial-amber block">YAZAR</span>
-                            <span class="font-headline text-sm font-extrabold">YAĞMUR GÜMÜŞ</span>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-editorial-amber block">YAZAR</span>
+                            <span class="font-headline text-xs sm:text-sm font-extrabold">YAĞMUR GÜMÜŞ</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 space-y-8">
-                    <div class="space-y-4">
-                        <span class="bg-editorial-crimson text-white text-xs font-mono font-bold px-3 py-1 rounded uppercase tracking-wider">İLK 50 CİTLİ ÖZEL BASKI (#001 - #050)</span>
-                        <h3 class="font-serif text-3xl font-bold text-editorial-ink">İzmir Yerel Üretimli Edisyon Paketleri</h3>
-                        <p class="font-serif text-base text-editorial-ink/80 leading-relaxed italic">
+                <div class="lg:col-span-7 space-y-6 sm:space-y-8">
+                    <div class="space-y-3 sm:space-y-4">
+                        <span class="bg-editorial-crimson text-white text-[10px] sm:text-xs font-mono font-bold px-2.5 py-1 rounded uppercase tracking-wider inline-block">İLK 50 CİTLİ ÖZEL BASKI (#001 - #050)</span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-editorial-ink">İzmir Yerel Üretimli Edisyon Paketleri</h3>
+                        <p class="font-serif text-sm sm:text-base text-editorial-ink/80 leading-relaxed italic">
                             İzmir'de yerel baskı merkezlerinde üreteceğimiz 500 adetlik serinin ilk 50 adedi numaralandırılmış, mürdüm mum mühürlü sertifikayla özel kutuya girecektir.
                         </p>
                     </div>
 
-                    <!-- Realistic Included Accessories -->
-                    <div class="grid sm:grid-cols-2 gap-4 text-xs font-mono font-bold text-editorial-ink">
-                        <div class="p-4 bg-editorial-bg rounded-xl border border-editorial-border space-y-1">
+                    <!-- Realistic Included Accessories Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs font-mono font-bold text-editorial-ink">
+                        <div class="p-3.5 sm:p-4 bg-editorial-bg rounded-xl border border-editorial-border space-y-1">
                             <div class="text-editorial-crimson"><i class="fa-solid fa-book mr-1"></i> CİTLİ ÖZEL KİTAP (#001-#050)</div>
-                            <div class="font-sans font-normal text-editorial-muted">Keten/Sert kapak cilt, numara damgalı. (Ayrı: 450 TL)</div>
+                            <div class="font-sans font-normal text-editorial-muted text-[11px] sm:text-xs">Keten/Sert kapak cilt, numara damgalı. (Ayrı: 450 TL)</div>
                         </div>
-                        <div class="p-4 bg-editorial-bg rounded-xl border border-editorial-border space-y-1">
+                        <div class="p-3.5 sm:p-4 bg-editorial-bg rounded-xl border border-editorial-border space-y-1">
                             <div class="text-editorial-crimson"><i class="fa-solid fa-stamp mr-1"></i> MÜHÜRLÜ SERTİFİKA</div>
-                            <div class="font-sans font-normal text-editorial-muted">300gr tuvalli kâğıt, mürdüm mum mühürlü. (Ayrı: 100 TL)</div>
+                            <div class="font-sans font-normal text-editorial-muted text-[11px] sm:text-xs">300gr tuvalli kâğıt, mürdüm mum mühürlü. (Ayrı: 100 TL)</div>
                         </div>
-                        <div class="p-4 bg-editorial-bg rounded-xl border border-editorial-border space-y-1">
+                        <div class="p-3.5 sm:p-4 bg-editorial-bg rounded-xl border border-editorial-border space-y-1">
                             <div class="text-editorial-crimson"><i class="fa-solid fa-envelope mr-1"></i> MÜHÜRLÜ İTHAF ZARFI</div>
-                            <div class="font-sans font-normal text-editorial-muted">Kraft zarf içinde şaire ait el yazısı dize. (Ayrı: 100 TL)</div>
+                            <div class="font-sans font-normal text-editorial-muted text-[11px] sm:text-xs">Kraft zarf içinde şaire ait el yazısı dize. (Ayrı: 100 TL)</div>
                         </div>
-                        <div class="p-4 bg-editorial-bg rounded-xl border border-editorial-border space-y-1">
+                        <div class="p-3.5 sm:p-4 bg-editorial-bg rounded-xl border border-editorial-border space-y-1">
                             <div class="text-editorial-crimson"><i class="fa-solid fa-bookmark mr-1"></i> LÜGATÇE AYRAÇ SETİ</div>
-                            <div class="font-sans font-normal text-editorial-muted">3'lü tipografik tuvalli ayraç seti. (Ayrı: 100 TL)</div>
+                            <div class="font-sans font-normal text-editorial-muted text-[11px] sm:text-xs">3'lü tipografik tuvalli ayraç seti. (Ayrı: 100 TL)</div>
                         </div>
                     </div>
 
@@ -179,59 +216,59 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="py-24 px-6 border-b border-editorial-border">
-        <div class="max-w-6xl mx-auto space-y-16">
+    <section id="pricing" class="py-16 sm:py-24 px-4 sm:px-6 border-b border-editorial-border">
+        <div class="max-w-6xl mx-auto space-y-12 sm:space-y-16">
             
-            <div class="text-center max-w-2xl mx-auto space-y-3">
-                <span class="text-xs font-mono font-bold uppercase tracking-widest text-editorial-crimson">A LA CARTE & SET SEÇENEKLERİ</span>
-                <h2 class="font-headline text-4xl font-extrabold text-editorial-ink">Modüler Fiyat Listesi</h2>
-                <p class="font-serif text-sm italic text-editorial-muted">İster tekil parçalar halinde, ister avantajlı Tam Koleksiyon Kutusunu seçin.</p>
+            <div class="text-center max-w-2xl mx-auto space-y-2 sm:space-y-3">
+                <span class="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-editorial-crimson">A LA CARTE & SET SEÇENEKLERİ</span>
+                <h2 class="font-headline text-3xl sm:text-4xl font-extrabold text-editorial-ink">Modüler Fiyat Listesi</h2>
+                <p class="font-serif text-xs sm:text-sm italic text-editorial-muted">İster tekil parçalar halinde, ister avantajlı Tam Koleksiyon Kutusunu seçin.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Option 1: Standard Book -->
-                <div class="p-8 bg-editorial-bg border border-editorial-border rounded-2xl space-y-6 flex flex-col justify-between shadow-sm hover:border-editorial-ink transition">
-                    <div class="space-y-4">
-                        <span class="text-xs font-mono font-bold text-editorial-muted uppercase tracking-widest">SEÇENEK #01</span>
-                        <h3 class="font-serif text-2xl font-bold">Standart Edisyon Kitap</h3>
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Option 1 -->
+                <div class="p-6 sm:p-8 bg-editorial-bg border border-editorial-border rounded-2xl space-y-6 flex flex-col justify-between shadow-sm hover:border-editorial-ink transition">
+                    <div class="space-y-3 sm:space-y-4">
+                        <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-muted uppercase tracking-widest">SEÇENEK #01</span>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold">Standart Edisyon Kitap</h3>
                         <p class="font-serif text-xs text-editorial-muted leading-relaxed">
                             Karton kapak, 500 basımlık serinin standart edisyon şiir kitabı.
                         </p>
                     </div>
-                    <div class="pt-6 border-t border-editorial-border space-y-3">
-                        <div class="font-headline text-3xl font-extrabold text-editorial-ink">220 TL</div>
+                    <div class="pt-4 sm:pt-6 border-t border-editorial-border space-y-3">
+                        <div class="font-headline text-2xl sm:text-3xl font-extrabold text-editorial-ink">220 TL</div>
                         <button onclick="alert('Standart Edisyon talebiniz alındı!');" class="w-full bg-editorial-card border border-editorial-border text-editorial-ink py-3 rounded-xl text-xs font-mono font-bold uppercase tracking-widest hover:border-editorial-ink transition">Sipariş Ver</button>
                     </div>
                 </div>
 
-                <!-- Option 2: Numbered Hardcover Only -->
-                <div class="p-8 bg-editorial-bg border border-editorial-border rounded-2xl space-y-6 flex flex-col justify-between shadow-sm hover:border-editorial-ink transition">
-                    <div class="space-y-4">
-                        <span class="text-xs font-mono font-bold text-editorial-crimson uppercase tracking-widest">SEÇENEK #02</span>
-                        <h3 class="font-serif text-2xl font-bold">Numaralandırılmış Ciltli Kitap</h3>
+                <!-- Option 2 -->
+                <div class="p-6 sm:p-8 bg-editorial-bg border border-editorial-border rounded-2xl space-y-6 flex flex-col justify-between shadow-sm hover:border-editorial-ink transition">
+                    <div class="space-y-3 sm:space-y-4">
+                        <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson uppercase tracking-widest">SEÇENEK #02</span>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold">Numaralandırılmış Ciltli Kitap</h3>
                         <p class="font-serif text-xs text-editorial-muted leading-relaxed">
                             Sert kapak cilt, #001 - #050 numaralandırılmış ıslak imzalı özel edisyon.
                         </p>
                     </div>
-                    <div class="pt-6 border-t border-editorial-border space-y-3">
-                        <div class="font-headline text-3xl font-extrabold text-editorial-ink">450 TL</div>
+                    <div class="pt-4 sm:pt-6 border-t border-editorial-border space-y-3">
+                        <div class="font-headline text-2xl sm:text-3xl font-extrabold text-editorial-ink">450 TL</div>
                         <button onclick="alert('Ciltli Özel Edisyon talebiniz alındı!');" class="w-full bg-editorial-card border border-editorial-border text-editorial-ink py-3 rounded-xl text-xs font-mono font-bold uppercase tracking-widest hover:border-editorial-ink transition">Sipariş Ver</button>
                     </div>
                 </div>
 
-                <!-- Option 3: Full Collector's Box Set -->
-                <div class="p-8 bg-editorial-bg border-2 border-editorial-ink rounded-2xl space-y-6 flex flex-col justify-between shadow-xl relative">
-                    <div class="absolute -top-3 right-6 bg-editorial-crimson text-white text-[10px] font-mono font-bold px-3 py-1 rounded uppercase tracking-wider">İLK 50 ÖZEL SET</div>
-                    <div class="space-y-4">
-                        <span class="text-xs font-mono font-bold text-editorial-crimson uppercase tracking-widest">SEÇENEK #03 (TAM SET)</span>
-                        <h3 class="font-serif text-2xl font-bold">Koleksiyon Lansman Kutusu</h3>
+                <!-- Option 3 -->
+                <div class="p-6 sm:p-8 bg-editorial-bg border-2 border-editorial-ink rounded-2xl space-y-6 flex flex-col justify-between shadow-xl relative">
+                    <div class="absolute -top-3 right-4 sm:right-6 bg-editorial-crimson text-white text-[9px] sm:text-[10px] font-mono font-bold px-2.5 py-1 rounded uppercase tracking-wider">İLK 50 ÖZEL SET</div>
+                    <div class="space-y-3 sm:space-y-4">
+                        <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson uppercase tracking-widest">SEÇENEK #03 (TAM SET)</span>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold">Koleksiyon Lansman Kutusu</h3>
                         <p class="font-serif text-xs text-editorial-muted leading-relaxed">
                             Ciltli Kitap (#001-#050) + Sert Kutu + Mühürlü Sertifika + İthaf Zarfı + 3'lü Ayraç Seti.
                         </p>
                     </div>
-                    <div class="pt-6 border-t border-editorial-border space-y-3">
+                    <div class="pt-4 sm:pt-6 border-t border-editorial-border space-y-3">
                         <div class="flex items-baseline gap-2">
-                            <div class="font-headline text-3xl font-extrabold text-editorial-crimson">690 TL</div>
+                            <div class="font-headline text-2xl sm:text-3xl font-extrabold text-editorial-crimson">690 TL</div>
                             <div class="text-xs font-mono text-editorial-muted line-through">900 TL</div>
                         </div>
                         <button onclick="alert('Tam Koleksiyon Kutusu talebiniz alındı!');" class="w-full bg-editorial-ink text-white py-3.5 rounded-xl text-xs font-mono font-bold uppercase tracking-widest hover:bg-editorial-crimson transition shadow">Tam Set Sipariş Et &rarr;</button>
@@ -243,71 +280,71 @@
     </section>
 
     <!-- Dictionary Section -->
-    <section id="dictionary" class="py-24 px-6 border-b border-editorial-border bg-editorial-card/30">
-        <div class="max-w-6xl mx-auto space-y-16">
-            <div class="text-center max-w-xl mx-auto space-y-3">
-                <span class="text-xs font-mono font-bold tracking-widest uppercase text-editorial-crimson">EDEBİ TANIMLAR</span>
-                <h2 class="font-headline text-4xl font-extrabold text-editorial-ink">Mahalle Lügatçesi</h2>
-                <p class="font-serif text-sm italic text-editorial-muted">"Acının dili yoktu ama harfleri vardı. Tıklayarak inceleyin."</p>
+    <section id="dictionary" class="py-16 sm:py-24 px-4 sm:px-6 border-b border-editorial-border bg-editorial-card/30">
+        <div class="max-w-6xl mx-auto space-y-12 sm:space-y-16">
+            <div class="text-center max-w-xl mx-auto space-y-2 sm:space-y-3">
+                <span class="text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase text-editorial-crimson">EDEBİ TANIMLAR</span>
+                <h2 class="font-headline text-3xl sm:text-4xl font-extrabold text-editorial-ink">Mahalle Lügatçesi</h2>
+                <p class="font-serif text-xs sm:text-sm italic text-editorial-muted">"Acının dili yoktu ama harfleri vardı. Tıklayarak inceleyin."</p>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-3 shadow-sm">
-                    <span class="text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #01</span>
-                    <h3 class="font-serif text-xl font-bold text-editorial-ink">ANNE</h3>
-                    <p class="font-serif italic text-sm text-editorial-ink/80 leading-relaxed">"Boğazda kalan pas. İçinde geçtiği bütün kelimeleri yanına alan, mahallemizde yıkılmadık ev bırakmayan o kelime."</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                    <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #01</span>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">ANNE</h3>
+                    <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Boğazda kalan pas. İçinde geçtiği bütün kelimeleri yanına alan, mahallemizde yıkılmadık ev bırakmayan o kelime."</p>
                 </div>
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-3 shadow-sm">
-                    <span class="text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #02</span>
-                    <h3 class="font-serif text-xl font-bold text-editorial-ink">ÇİĞDEM</h3>
-                    <p class="font-serif italic text-sm text-editorial-ink/80 leading-relaxed">"Her bahar çıkacağına söz verip çıkmayan umut. Mahallemizin en güvenilmez vaadi."</p>
+                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                    <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #02</span>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">ÇİĞDEM</h3>
+                    <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Her bahar çıkacağına söz verip çıkmayan umut. Mahallemizin en güvenilmez vaadi."</p>
                 </div>
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-3 shadow-sm">
-                    <span class="text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #03</span>
-                    <h3 class="font-serif text-xl font-bold text-editorial-ink">KUL HAKKI</h3>
-                    <p class="font-serif italic text-sm text-editorial-ink/80 leading-relaxed">"Bir ruhu evcilleştirip sonra terk etmenin ilahi kanundaki karşılığı."</p>
+                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                    <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #03</span>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">KUL HAKKI</h3>
+                    <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Bir ruhu evcilleştirip sonra terk etmenin ilahi kanundaki karşılığı."</p>
                 </div>
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-3 shadow-sm">
-                    <span class="text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #04</span>
-                    <h3 class="font-serif text-xl font-bold text-editorial-ink">BÖCEKLER</h3>
-                    <p class="font-serif italic text-sm text-editorial-ink/80 leading-relaxed">"Bizim bir türlü icat edemediğimiz o mutlak adalet duygusuna sahip demokrat gurmeler. Statü bilmeyenler."</p>
+                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                    <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #04</span>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">BÖCEKLER</h3>
+                    <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Bizim bir türlü icat edemediğimiz o mutlak adalet duygusuna sahip demokrat gurmeler. Statü bilmeyenler."</p>
                 </div>
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-3 shadow-sm">
-                    <span class="text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #05</span>
-                    <h3 class="font-serif text-xl font-bold text-editorial-ink">ON BİR TEMMUZ</h3>
-                    <p class="font-serif italic text-sm text-editorial-ink/80 leading-relaxed">"Milat. Ayrılığın yeni adı. Çamaşır asılmayan, bacaların kara tüttüğü o ilk gün."</p>
+                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                    <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #05</span>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">ON BİR TEMMUZ</h3>
+                    <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Milat. Ayrılığın yeni adı. Çamaşır asılmayan, bacaların kara tüttüğü o ilk gün."</p>
                 </div>
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-3 shadow-sm">
-                    <span class="text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #06</span>
-                    <h3 class="font-serif text-xl font-bold text-editorial-ink">BÜYÜMEK</h3>
-                    <p class="font-serif italic text-sm text-editorial-ink/80 leading-relaxed">"Palavra. Siz ütülü pantolon gibi dolaşmak sandınız büyümeyi..."</p>
+                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                    <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #06</span>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">BÜYÜMEK</h3>
+                    <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Palavra. Siz ütülü pantolon gibi dolaşmak sandınız büyümeyi..."</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Bio Section -->
-    <section id="about" class="py-24 px-6 border-b border-editorial-border">
-        <div class="max-w-5xl mx-auto space-y-16">
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5">
-                    <div class="border-2 border-editorial-ink p-2 bg-white rounded-2xl shadow-xl">
+    <section id="about" class="py-16 sm:py-24 px-4 sm:px-6 border-b border-editorial-border">
+        <div class="max-w-5xl mx-auto space-y-12 sm:space-y-16">
+            <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="border-2 border-editorial-ink p-2 bg-white rounded-2xl shadow-xl max-w-xs sm:max-w-none w-full">
                         <img src="https://ygmurgms.github.io/images/yagmur.jpg" onerror="this.src='https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80'" alt="Yağmur Gümüş" class="w-full aspect-square object-cover rounded-xl">
                     </div>
                 </div>
-                <div class="lg:col-span-7 space-y-6">
-                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-editorial-crimson">YAZAR & EDİTÖR</span>
-                    <h2 class="font-headline text-4xl font-extrabold text-editorial-ink">KİM BU YAĞMUR?</h2>
-                    <p class="font-serif text-base text-editorial-ink/90 leading-relaxed">
+                <div class="lg:col-span-7 space-y-4 sm:space-y-6">
+                    <span class="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-editorial-crimson">YAZAR & EDİTÖR</span>
+                    <h2 class="font-headline text-3xl sm:text-4xl font-extrabold text-editorial-ink">KİM BU YAĞMUR?</h2>
+                    <p class="font-serif text-sm sm:text-base text-editorial-ink/90 leading-relaxed">
                         2006 Üsküdar doğumlu. İzmir’in kenar mahallelerinde, çamaşır ipinde kuruyan çocukluğunun ardından kelimelerin içine sığınarak kendine yeni bir ev kurdu. Manisa Celal Bayar Üniversitesi Halkla İlişkiler eğitimi ve <i>Kor Dergi</i> Genel Yayın Yönetmenliği liderliğiyle, edebiyatı insan ilişkilerini ve kurumsal hafızayı iyileştiren bir pusula olarak konumlandırıyor.
                     </p>
-                    <div class="grid sm:grid-cols-2 gap-4 text-xs font-mono font-bold text-editorial-ink pt-4 border-t border-editorial-border">
-                        <div class="p-4 bg-editorial-card rounded-xl border border-editorial-border">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs font-mono font-bold text-editorial-ink pt-4 border-t border-editorial-border">
+                        <div class="p-3.5 sm:p-4 bg-editorial-card rounded-xl border border-editorial-border">
                             <span class="text-editorial-crimson block mb-1">KOR DERGİ (2024-2025)</span>
-                            <span class="font-sans font-normal text-editorial-muted">Genel Yayın Yönetmeni — Tüm yayın politikasını ve içerik ekibini koordine etti.</span>
+                            <span class="font-sans font-normal text-editorial-muted text-[11px] sm:text-xs">Genel Yayın Yönetmeni — Tüm yayın politikasını ve içerik ekibini koordine etti.</span>
                         </div>
-                        <div class="p-4 bg-editorial-card rounded-xl border border-editorial-border">
+                        <div class="p-3.5 sm:p-4 bg-editorial-card rounded-xl border border-editorial-border">
                             <span class="text-editorial-crimson block mb-1">EĞİTİM & YETKİNLİK</span>
-                            <span class="font-sans font-normal text-editorial-muted">Celal Bayar Üni. PR & Melek Aknil Bilişim Teknolojileri altyapısı.</span>
+                            <span class="font-sans font-normal text-editorial-muted text-[11px] sm:text-xs">Celal Bayar Üni. PR & Melek Aknil Bilişim Teknolojileri altyapısı.</span>
                         </div>
                     </div>
                 </div>
@@ -316,26 +353,26 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-24 px-6 border-b border-editorial-border bg-editorial-card/40">
-        <div class="max-w-6xl mx-auto space-y-16">
-            <div class="text-center max-w-2xl mx-auto space-y-3">
-                <span class="text-xs font-mono font-bold uppercase tracking-widest text-editorial-crimson">PUSULA STÜDYO HİZMETLERİ</span>
-                <h2 class="font-headline text-4xl font-extrabold text-editorial-ink">Bağımsız Yazarlar & Kurumlar İçin</h2>
-                <p class="font-serif text-sm italic text-editorial-muted">Profesyonel editoryal ve yayıncılık destek paketlerimiz.</p>
+    <section id="services" class="py-16 sm:py-24 px-4 sm:px-6 border-b border-editorial-border bg-editorial-card/40">
+        <div class="max-w-6xl mx-auto space-y-12 sm:space-y-16">
+            <div class="text-center max-w-2xl mx-auto space-y-2 sm:space-y-3">
+                <span class="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-editorial-crimson">PUSULA STÜDYO HİZMETLERİ</span>
+                <h2 class="font-headline text-3xl sm:text-4xl font-extrabold text-editorial-ink">Bağımsız Yazarlar & Kurumlar İçin</h2>
+                <p class="font-serif text-xs sm:text-sm italic text-editorial-muted">Profesyonel editoryal ve yayıncılık destek paketlerimiz.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 bg-editorial-bg border border-editorial-border rounded-2xl space-y-4 shadow-sm hover:border-editorial-ink transition">
-                    <div class="w-12 h-12 rounded-full bg-editorial-crimson text-white flex items-center justify-center text-xl"><i class="fa-solid fa-pen-nib"></i></div>
-                    <h3 class="font-serif text-xl font-bold text-editorial-ink">Editoryal Okuma & Düzeltme</h3>
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+                <div class="p-6 sm:p-8 bg-editorial-bg border border-editorial-border rounded-2xl space-y-4 shadow-sm hover:border-editorial-ink transition">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-editorial-crimson text-white flex items-center justify-center text-lg sm:text-xl"><i class="fa-solid fa-pen-nib"></i></div>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">Editoryal Okuma & Düzeltme</h3>
                     <p class="font-serif text-xs text-editorial-ink/80 leading-relaxed">Edebi kurgu, metin düzenleme ve dilbilgisel ahenk danışmanlığı. Dosyanızı yayıncı standartlarına taşıyoruz.</p>
                 </div>
-                <div class="p-8 bg-editorial-bg border border-editorial-border rounded-2xl space-y-4 shadow-sm hover:border-editorial-ink transition">
-                    <div class="w-12 h-12 rounded-full bg-editorial-crimson text-white flex items-center justify-center text-xl"><i class="fa-solid fa-book-open"></i></div>
-                    <h3 class="font-serif text-xl font-bold text-editorial-ink">Kitap Tasarımı & Mizampaj</h3>
+                <div class="p-6 sm:p-8 bg-editorial-bg border border-editorial-border rounded-2xl space-y-4 shadow-sm hover:border-editorial-ink transition">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-editorial-crimson text-white flex items-center justify-center text-lg sm:text-xl"><i class="fa-solid fa-book-open"></i></div>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">Kitap Tasarımı & Mizampaj</h3>
                     <p class="font-serif text-xs text-editorial-ink/80 leading-relaxed">Sayfa düzeninden kapak tasarımına kadar eserinizi baskıya ve dijital yayıncılığa özel kurguluyoruz.</p>
                 </div>
-                <div class="p-8 bg-editorial-bg border border-editorial-border rounded-2xl space-y-4 shadow-sm hover:border-editorial-ink transition">
-                    <div class="w-12 h-12 rounded-full bg-editorial-crimson text-white flex items-center justify-center text-xl"><i class="fa-solid fa-globe"></i></div>
+                <div class="p-6 sm:p-8 bg-editorial-bg border border-editorial-border rounded-2xl space-y-4 shadow-sm hover:border-editorial-ink transition">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-editorial-crimson text-white flex items-center justify-center text-lg sm:text-xl"><i class="fa-solid fa-globe"></i></div>
                     <h3 class="font-serif text-xl font-bold text-editorial-ink">Küresel Dijital Dağıtım</h3>
                     <p class="font-serif text-xs text-editorial-ink/80 leading-relaxed">Eserlerinizi Substack, Amazon KDP ve uluslararası yayın ağlarına taşımak üzere danışmanlık veriyoruz.</p>
                 </div>
@@ -344,21 +381,21 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 bg-editorial-ink text-editorial-bg">
-        <div class="max-w-3xl mx-auto text-center space-y-8">
-            <i class="fa-solid fa-compass text-5xl text-editorial-amber"></i>
-            <h2 class="font-headline text-4xl md:text-5xl font-extrabold">SES VER & BÜLTENE KATIL</h2>
-            <p class="font-serif text-base text-editorial-bg/80 italic max-w-xl mx-auto">Haftalık edebi denemeler, sesli şiir okumaları ve editoryal danışmanlık talepleri için bize yazın.</p>
-            <form onsubmit="alert('Sesiniz bize ulaştı! En kısa sürede dönüş yapacağız.'); return false;" class="space-y-4 text-left font-sans max-w-md mx-auto pt-4">
+    <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 bg-editorial-ink text-editorial-bg">
+        <div class="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
+            <i class="fa-solid fa-compass text-4xl sm:text-5xl text-editorial-amber"></i>
+            <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold">SES VER & BÜLTENE KATIL</h2>
+            <p class="font-serif text-sm sm:text-base text-editorial-bg/80 italic max-w-xl mx-auto">Haftalık edebi denemeler, sesli şiir okumaları ve editoryal danışmanlık talepleri için bize yazın.</p>
+            <form onsubmit="alert('Sesiniz bize ulaştı! En kısa sürede dönüş yapacağız.'); return false;" class="space-y-3.5 sm:space-y-4 text-left font-sans max-w-md mx-auto pt-2 sm:pt-4">
                 <div>
-                    <label class="block text-xs font-mono uppercase tracking-widest text-editorial-amber mb-1">E-POSTA ADRESİNİZ</label>
-                    <input type="email" placeholder="ornek@email.com" required class="w-full bg-editorial-ink/80 border border-editorial-bg/20 text-white px-5 py-3.5 rounded-xl text-xs focus:outline-none focus:border-editorial-amber">
+                    <label class="block text-[10px] sm:text-xs font-mono uppercase tracking-widest text-editorial-amber mb-1">E-POSTA ADRESİNİZ</label>
+                    <input type="email" placeholder="ornek@email.com" required class="w-full bg-editorial-ink/80 border border-editorial-bg/20 text-white px-4 sm:px-5 py-3 rounded-xl text-xs focus:outline-none focus:border-editorial-amber">
                 </div>
                 <div>
-                    <label class="block text-xs font-mono uppercase tracking-widest text-editorial-amber mb-1">MESAJINIZ / TALEBİNİZ</label>
-                    <textarea rows="3" placeholder="Projenizi veya mesajınızı yazın..." class="w-full bg-editorial-ink/80 border border-editorial-bg/20 text-white px-5 py-3.5 rounded-xl text-xs focus:outline-none focus:border-editorial-amber"></textarea>
+                    <label class="block text-[10px] sm:text-xs font-mono uppercase tracking-widest text-editorial-amber mb-1">MESAJINIZ / TALEBİNİZ</label>
+                    <textarea rows="3" placeholder="Projenizi veya mesajınızı yazın..." class="w-full bg-editorial-ink/80 border border-editorial-bg/20 text-white px-4 sm:px-5 py-3 rounded-xl text-xs focus:outline-none focus:border-editorial-amber"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-editorial-crimson text-white font-bold py-4 rounded-xl text-xs uppercase tracking-widest hover:bg-white hover:text-editorial-ink transition shadow-lg">Gönder &rarr;</button>
+                <button type="submit" class="w-full bg-editorial-crimson text-white font-bold py-3.5 sm:py-4 rounded-xl text-xs uppercase tracking-widest hover:bg-white hover:text-editorial-ink transition shadow-lg">Gönder &rarr;</button>
             </form>
             <div class="font-mono text-xs text-editorial-bg/60 pt-4">
                 DOĞRUDAN İLETİŞİM: <a href="mailto:gumusy958@gmail.com" class="underline text-editorial-amber">gumusy958@gmail.com</a>
@@ -366,7 +403,7 @@
         </div>
     </section>
 
-    <footer class="py-12 px-6 border-t border-editorial-border text-center font-mono text-xs text-editorial-muted tracking-widest uppercase">
+    <footer class="py-8 sm:py-12 px-4 sm:px-6 border-t border-editorial-border text-center font-mono text-[10px] sm:text-xs text-editorial-muted tracking-widest uppercase">
         <div>COMPASS. © 2006 YAĞMUR GÜMÜŞ. TÜM HAKLARI KELİMELERE SAKLIDIR.</div>
     </footer>
 
