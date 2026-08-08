@@ -1,27 +1,106 @@
 /* ==========================================================================
-   LÜGAT-I CSS: TİYATRAL & TEKNİK DESIGN TOKENS
+   LÜGAT-I CSS: TİYATRAL & TEKNİK DESIGN TOKENS (style.css)
    ========================================================================== */
 :root {
-  /* Renk-i Mürekkep ve Kâğıt Hiyerarşisi */
-  --renk-murekkep-i-murdum: #9e2a2b;   /* Bordo/Kırmızı edebi aksan */
-  --renk-kagit-i-eski: #f9f7f1;      /* Dokulu kâğıt arka planı */
-  --renk-kart-i-mahalle: #f2eee3;    /* Karton kapak rengi */
-  --renk-gece-i-uskudar: #121110;    /* Mürekkep siyahı */
-  --renk-kehribar-i-saat: #d4a373;   /* Paslı pirinç/kehribar ışığı */
-  --renk-cizgi-i-silik: #e3ded1;     /* Satır arası sınır rengi */
-  --renk-yazi-i-solgun: #68645e;     /* Muted dipnot yazısı */
+  --renk-murekkep-i-murdum: #9e2a2b;
+  --renk-kagit-i-eski: #f9f7f1;
+  --renk-kart-i-mahalle: #f2eee3;
+  --renk-gece-i-uskudar: #121110;
+  --renk-kehribar-i-saat: #d4a373;
+  --renk-cizgi-i-silik: #e3ded1;
+  --renk-yazi-i-solgun: #68645e;
 
-  /* Tipografi-i Akıcı (Fluid Typography - Sıfır CLS) */
   --font-serif-i-didem: 'Cormorant Garamond', Georgia, serif;
   --font-headline-i-compass: 'Syne', sans-serif;
   --font-sans-i-mahalle: 'Plus Jakarta Sans', sans-serif;
 
-  /* Hız ve İvme Tokens (Elastic / GPU Acceleration) */
   --hiz-fisek-gibi: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --hiz-sahne-esnegi: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
   
-  /* Boşluk-u Çamaşır İpi (Fluid Spacing & Shadows) */
   --camasir-ipi-padding: clamp(1rem, 0.8rem + 1vw, 2.5rem);
   --golge-i-melankoli: 0 10px 30px -10px rgba(18, 17, 16, 0.15);
   --radius-i-mum: 12px;
+}
+
+/* Sahneden Fırlayan Elastic Buton */
+.c-btn-sahne {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.8rem 1.75rem;
+  font-family: var(--font-sans-i-mahalle);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--renk-kagit-i-eski);
+  background-color: var(--renk-gece-i-uskudar);
+  border: 1px solid var(--renk-gece-i-uskudar);
+  border-radius: 9999px;
+  cursor: pointer;
+  
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transition: transform var(--hiz-sahne-esnegi), background-color var(--hiz-fisek-gibi), box-shadow var(--hiz-fisek-gibi);
+}
+
+.c-btn-sahne:hover {
+  background-color: var(--renk-murekkep-i-murdum);
+  border-color: var(--renk-murekkep-i-murdum);
+  transform: translate3d(0, -4px, 0) scale(1.02);
+  box-shadow: 0 8px 20px -2px rgba(158, 42, 43, 0.3);
+}
+
+/* 3D Mahalle Lügatçesi Kartları */
+.c-lugat-sahnesi {
+  perspective: 1000px;
+}
+
+.c-lugat-karti {
+  background-color: var(--renk-kagit-i-eski);
+  border: 1px solid var(--renk-cizgi-i-silik);
+  border-radius: var(--radius-i-mum);
+  padding: var(--camasir-ipi-padding);
+  box-shadow: var(--golge-i-melankoli);
+  
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  transition: transform var(--hiz-sahne-esnegi), border-color var(--hiz-fisek-gibi);
+}
+
+.c-lugat-karti:hover,
+.c-lugat-karti:focus-visible {
+  border-color: var(--renk-murekkep-i-murdum);
+  transform: rotateX(4deg) rotateY(-4deg) translate3d(0, -6px, 10px);
+}
+
+/* Form Shake Animasyonu ve Hata Mesajı */
+.c-form-input:user-invalid {
+  border-color: var(--renk-murekkep-i-murdum) !important;
+  animation: ferhan-kafa-salla 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.c-form-input:user-invalid ~ .c-ferhan-uyari {
+  display: block;
+  opacity: 1;
+}
+
+.c-ferhan-uyari {
+  display: none;
+  opacity: 0;
+  font-family: var(--font-serif-i-didem);
+  font-style: italic;
+  font-size: 0.875rem;
+  color: #fb4c2f;
+  margin-top: 0.5rem;
+  transition: opacity var(--hiz-fisek-gibi);
+}
+
+@keyframes ferhan-kafa-salla {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(4px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+  40%, 60% { transform: translate3d(6px, 0, 0); }
 }
