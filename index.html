@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Harici Style Dosyası Bağlantısı -->
+    <link rel="stylesheet" href="style.css">
     
     <script>
         tailwind.config = {
@@ -38,41 +40,6 @@
             }
         }
     </script>
-    <style>
-        html, body {
-            background-color: #f9f7f1;
-            color: #121110;
-            background-image: radial-gradient(#e3ded1 0.75px, transparent 0.75px);
-            background-size: 16px 16px;
-            overflow-x: hidden;
-            width: 100%;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-        
-        /* Responsive 3D Book Showcase Effect */
-        .book-wrapper { 
-            perspective: 1000px; 
-        }
-        .book-container {
-            transform: rotateY(-15deg) rotateX(8deg);
-            transform-style: preserve-3d;
-            box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s ease;
-        }
-        @media (max-width: 640px) {
-            .book-container {
-                transform: rotateY(0deg) rotateX(0deg);
-                box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
-            }
-        }
-        .glass-panel {
-            background: rgba(249, 247, 241, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(227, 222, 209, 0.8);
-        }
-    </style>
 </head>
 <body class="font-sans antialiased selection:bg-editorial-crimson selection:text-white max-w-full">
 
@@ -148,9 +115,9 @@
                 Geçici dijital gürültünün ortasında; çamaşır ipinde kuruyan çocukluğun, sokak lambalarının ve kelimelerden kurulan bir mahallenin kalıcı edebiyat üssü.
             </p>
             <div class="pt-4 sm:pt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-md mx-auto sm:max-w-none">
-                <a href="#book" class="w-full sm:w-auto bg-editorial-ink text-editorial-bg px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-editorial-crimson transition shadow-lg flex items-center justify-center gap-2">
+                <a href="#book" class="c-btn-sahne w-full sm:w-auto">
                     <span>İlk 50 Özel Baskıyı İncele</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                    <i class="fa-solid fa-arrow-right text-xs ml-2"></i>
                 </a>
             </div>
         </div>
@@ -271,7 +238,7 @@
                             <div class="font-headline text-2xl sm:text-3xl font-extrabold text-editorial-crimson">690 TL</div>
                             <div class="text-xs font-mono text-editorial-muted line-through">900 TL</div>
                         </div>
-                        <button onclick="alert('Tam Koleksiyon Kutusu talebiniz alındı!');" class="w-full bg-editorial-ink text-white py-3.5 rounded-xl text-xs font-mono font-bold uppercase tracking-widest hover:bg-editorial-crimson transition shadow">Tam Set Sipariş Et &rarr;</button>
+                        <button onclick="alert('Tam Koleksiyon Kutusu talebiniz alındı!');" class="c-btn-sahne w-full">Tam Set Sipariş Et &rarr;</button>
                     </div>
                 </div>
             </div>
@@ -287,37 +254,37 @@
                 <h2 class="font-headline text-3xl sm:text-4xl font-extrabold text-editorial-ink">Mahalle Lügatçesi</h2>
                 <p class="font-serif text-xs sm:text-sm italic text-editorial-muted">"Acının dili yoktu ama harfleri vardı. Tıklayarak inceleyin."</p>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+            <div class="c-lugat-sahnesi grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <article class="c-lugat-karti" tabindex="0">
                     <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #01</span>
-                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">ANNE</h3>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink mt-1 mb-2">ANNE</h3>
                     <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Boğazda kalan pas. İçinde geçtiği bütün kelimeleri yanına alan, mahallemizde yıkılmadık ev bırakmayan o kelime."</p>
-                </div>
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                </article>
+                <article class="c-lugat-karti" tabindex="0">
                     <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #02</span>
-                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">ÇİĞDEM</h3>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink mt-1 mb-2">ÇİĞDEM</h3>
                     <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Her bahar çıkacağına söz verip çıkmayan umut. Mahallemizin en güvenilmez vaadi."</p>
-                </div>
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                </article>
+                <article class="c-lugat-karti" tabindex="0">
                     <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #03</span>
-                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">KUL HAKKI</h3>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink mt-1 mb-2">KUL HAKKI</h3>
                     <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Bir ruhu evcilleştirip sonra terk etmenin ilahi kanundaki karşılığı."</p>
-                </div>
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                </article>
+                <article class="c-lugat-karti" tabindex="0">
                     <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #04</span>
-                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">BÖCEKLER</h3>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink mt-1 mb-2">BÖCEKLER</h3>
                     <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Bizim bir türlü icat edemediğimiz o mutlak adalet duygusuna sahip demokrat gurmeler. Statü bilmeyenler."</p>
-                </div>
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                </article>
+                <article class="c-lugat-karti" tabindex="0">
                     <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #05</span>
-                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">ON BİR TEMMUZ</h3>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink mt-1 mb-2">ON BİR TEMMUZ</h3>
                     <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Milat. Ayrılığın yeni adı. Çamaşır asılmayan, bacaların kara tüttüğü o ilk gün."</p>
-                </div>
-                <div onclick="this.classList.toggle('bg-editorial-amber/20')" class="bg-editorial-bg p-6 sm:p-8 border border-editorial-border rounded-xl cursor-pointer hover:border-editorial-ink transition space-y-2.5 sm:space-y-3 shadow-sm">
+                </article>
+                <article class="c-lugat-karti" tabindex="0">
                     <span class="text-[10px] sm:text-xs font-mono font-bold text-editorial-crimson">LÜGATÇE #06</span>
-                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink">BÜYÜMEK</h3>
+                    <h3 class="font-serif text-lg sm:text-xl font-bold text-editorial-ink mt-1 mb-2">BÜYÜMEK</h3>
                     <p class="font-serif italic text-xs sm:text-sm text-editorial-ink/80 leading-relaxed">"Palavra. Siz ütülü pantolon gibi dolaşmak sandınız büyümeyi..."</p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -380,23 +347,32 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section (Sokak Reaksiyonlu Ferhanca Validasyonlu Form) -->
     <section id="contact" class="py-16 sm:py-24 px-4 sm:px-6 bg-editorial-ink text-editorial-bg">
         <div class="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
             <i class="fa-solid fa-compass text-4xl sm:text-5xl text-editorial-amber"></i>
             <h2 class="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold">SES VER & BÜLTENE KATIL</h2>
             <p class="font-serif text-sm sm:text-base text-editorial-bg/80 italic max-w-xl mx-auto">Haftalık edebi denemeler, sesli şiir okumaları ve editoryal danışmanlık talepleri için bize yazın.</p>
-            <form onsubmit="alert('Sesiniz bize ulaştı! En kısa sürede dönüş yapacağız.'); return false;" class="space-y-3.5 sm:space-y-4 text-left font-sans max-w-md mx-auto pt-2 sm:pt-4">
-                <div>
-                    <label class="block text-[10px] sm:text-xs font-mono uppercase tracking-widest text-editorial-amber mb-1">E-POSTA ADRESİNİZ</label>
-                    <input type="email" placeholder="ornek@email.com" required class="w-full bg-editorial-ink/80 border border-editorial-bg/20 text-white px-4 sm:px-5 py-3 rounded-xl text-xs focus:outline-none focus:border-editorial-amber">
+            
+            <form onsubmit="alert('Sesiniz bize ulaştı! En kısa sürede dönüş yapacağız.'); return false;" class="c-sesver-formu space-y-3.5 sm:space-y-4 text-left font-sans max-w-md mx-auto pt-2 sm:pt-4" novalidate>
+                <div class="c-form-alani">
+                    <label for="eposta-input" class="block text-[10px] sm:text-xs font-mono uppercase tracking-widest text-editorial-amber mb-1">E-POSTA ADRESİNİZ</label>
+                    <input 
+                      type="email" 
+                      id="eposta-input" 
+                      placeholder="ornek@email.com" 
+                      required 
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                      class="c-form-input w-full bg-editorial-ink/80 border border-editorial-bg/20 text-white px-4 sm:px-5 py-3 rounded-xl text-xs focus:outline-none focus:border-editorial-amber">
+                    <p class="c-ferhan-uyari">E-postanın '@' et işaretini yutmuşsun be evladım! Postacı mektubu nereye götürsün?</p>
                 </div>
                 <div>
                     <label class="block text-[10px] sm:text-xs font-mono uppercase tracking-widest text-editorial-amber mb-1">MESAJINIZ / TALEBİNİZ</label>
                     <textarea rows="3" placeholder="Projenizi veya mesajınızı yazın..." class="w-full bg-editorial-ink/80 border border-editorial-bg/20 text-white px-4 sm:px-5 py-3 rounded-xl text-xs focus:outline-none focus:border-editorial-amber"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-editorial-crimson text-white font-bold py-3.5 sm:py-4 rounded-xl text-xs uppercase tracking-widest hover:bg-white hover:text-editorial-ink transition shadow-lg">Gönder &rarr;</button>
+                <button type="submit" class="c-btn-sahne w-full">Gönder &rarr;</button>
             </form>
+
             <div class="font-mono text-xs text-editorial-bg/60 pt-4">
                 DOĞRUDAN İLETİŞİM: <a href="mailto:gumusy958@gmail.com" class="underline text-editorial-amber">gumusy958@gmail.com</a>
             </div>
